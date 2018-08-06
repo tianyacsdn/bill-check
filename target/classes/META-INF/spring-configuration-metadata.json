@@ -1,0 +1,10 @@
+{
+  "groups": [{
+    "name": "bill",
+    "type": "javax.sql.DataSource",
+    "sourceType": "com.sinochem.db.DbSourceImpl",
+    "sourceMethod": "getDataSource()"
+  }],
+  "properties": [],
+  "hints": []
+}

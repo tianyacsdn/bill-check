@@ -1,30 +1,26 @@
 package com.sinochem.controller;
 
-import com.sinochem.domain.BillBankBalance;
-import com.sinochem.service.BillBankBalanceService;
+import com.sinochem.service.ParseBillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/balance")
-public class BillBankBalanceController {
+public class BillParseController {
 
     @Autowired
-    BillBankBalanceService billBankBalanceService;
+    ParseBillService parseBillService;
 
-    @RequestMapping(value = "/query")
-    public Map listBalance() throws Exception{
+    @RequestMapping(value = "/parse")
+    public Map parseBill() throws Exception {
         Map<String, Object> map = new HashMap<>();
-        List<BillBankBalance> list = billBankBalanceService.listBillBankBalanceService();
+        List list = parseBillService.parseBill();
         map.put("data", list);
         return map;
-
     }
-
 }

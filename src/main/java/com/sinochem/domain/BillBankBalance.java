@@ -1,5 +1,8 @@
 package com.sinochem.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -11,7 +14,7 @@ public class BillBankBalance {
     private String thirdNum;
 
     private String tradeType;
-
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyyMMdd")
     private Date billDate;
 
     private String transSq;
@@ -25,9 +28,9 @@ public class BillBankBalance {
     private Long optId;
 
     private String remark;
-
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
-
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date updateTime;
 
     public Long getId() {

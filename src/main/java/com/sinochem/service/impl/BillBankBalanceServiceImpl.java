@@ -10,6 +10,7 @@ import com.sinochem.service.BillBankBalanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 
 @Service
@@ -20,9 +21,9 @@ public class BillBankBalanceServiceImpl implements BillBankBalanceService {
 
     @Override
     public List<BillBankBalance> listBillBankBalanceService() throws Exception {
-        BalanceBillFactory factory = new PingAnBalanceBillFactory();
-        TxtBalanceBill txtBalanceBill = factory.build();
-        List<BillBankBalance> list = txtBalanceBill.parse();
+        BillBankBalanceExample example = new BillBankBalanceExample();
+        BillBankBalanceExample.Criteria criteria = example.createCriteria();
+        List<BillBankBalance> list = billBankBalanceMapper.selectByExample(example);
         return list;
     }
 }

@@ -23,4 +23,16 @@ public class BillParseController {
         map.put("data", list);
         return map;
     }
+
+    @RequestMapping(value = "/load")
+    public Map loadBill() throws Exception {
+        Map<String, Object> map = new HashMap<>();
+        boolean flag = parseBillService.loadBill();
+        if (flag) {
+            map.put("msg", "账单导入数据库成功！");
+        } else {
+            map.put("msg", "账单导入数据库失败#");
+        }
+        return map;
+    }
 }

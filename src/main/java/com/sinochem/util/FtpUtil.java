@@ -14,6 +14,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 类名称：FtpUtil
+ * 类描述：FTP文件下载工具类
+ * @author shiqianghui
+ * @date 2018-08-04
+ */
 public class FtpUtil {
 
     /**
@@ -84,7 +90,7 @@ public class FtpUtil {
                                           String password,
                                           String ftpPath,
                                           String localPath) throws Exception {
-        List<String> list = downloadBill("", "", hostname, port, username, password, ftpPath,localPath );
+        List<String> list = downloadBill("", "", hostname, port, username, password, ftpPath,localPath);
         return list;
     }
 
@@ -197,7 +203,7 @@ public class FtpUtil {
                 conditionFlag = true;
             }
             if (fileName.substring(2,10).equals(date) && conditionFlag) {
-                File localFile = new File(localPath + File.separator + fileName);
+                File localFile = new File(localPath + File.separator + fileName.substring(0,2) + File.separator + fileName);
                 os = new FileOutputStream(localFile);
                 ftpClient.retrieveFile(file.getName(), os);
                 list.add(fileName);

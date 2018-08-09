@@ -7,6 +7,7 @@ import com.sinochem.parse.PingAnBalanceBillFactory;
 import com.sinochem.parse.TxtBalanceBill;
 import com.sinochem.service.ParseBillService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -17,6 +18,11 @@ import java.util.List;
 @Service
 public class ParseBillServiceImpl implements ParseBillService {
 
+    @Value("${ftp.localPath}")
+    private String localPath;
+    @Value("${ftp.YEPath}")
+    private String balancePath;
+
     @Autowired
     BillBankBalanceMapper billBankBalanceMapper;
 
@@ -24,7 +30,15 @@ public class ParseBillServiceImpl implements ParseBillService {
     public List<BillBankBalance> parseBill() throws Exception {
         BalanceBillFactory factory = new PingAnBalanceBillFactory();
         TxtBalanceBill txtBalanceBill = factory.build();
-        List<BillBankBalance> list = txtBalanceBill.parse("E:" + File.separator + "FTP");
+        List<BillBankBalance> list = txtBalanceBill.parse(localPath);
+        return list;
+    }
+
+    @Override
+    public List parseBillByDate(String billDate) throws Exception {
+        BalanceBillFactory factory = new PingAnBalanceBillFactory();
+        TxtBalanceBill txtBalanceBill = factory.build();
+        List<BillBankBalance> list = txtBalanceBill.parse(localPath + File.separator + balancePath, billDate);
         return list;
     }
 
@@ -32,6 +46,21 @@ public class ParseBillServiceImpl implements ParseBillService {
     @Transactional
     public boolean loadBill() throws Exception{
         List<BillBankBalance> billList = parseBill();
+        for (int i = 0; i < billList.size(); i++) {
+            BillBankBalance billBankBalance = billList.get(i);
+            billBankBalance.setCreateTime(new Date());
+            billBankBalance.setOptId(001L);
+            int num = billBankBalanceMapper.insert(billBankBalance);
+            if (num != 1) {
+                throw new Exception("账单导入数据库失败");
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean loadBillByBillDate(String billDate) throws Exception {
+        List<BillBankBalance> billList = parseBillByDate(billDate);
         for (int i = 0; i < billList.size(); i++) {
             BillBankBalance billBankBalance = billList.get(i);
             billBankBalance.setCreateTime(new Date());

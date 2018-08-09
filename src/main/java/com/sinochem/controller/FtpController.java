@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -20,8 +21,9 @@ public class FtpController {
     public Map downloadAllBill() {
         Map map = new HashMap();
         try {
-            boolean flag = ftpService.dowloadBill();
+            List<String> list = ftpService.dowloadBill();
             map.put("msg","下载T-1日所有对账单成功！");
+            map.put("data", list);
         } catch (Exception e) {
             map.put("msg", e.getMessage());
         }
@@ -32,8 +34,9 @@ public class FtpController {
     public Map downloadBillByDate(@RequestParam String date) throws Exception {
         Map map = new HashMap();
         try {
-            boolean flag = ftpService.downloadBillByDate(date);
+            List<String> list = ftpService.downloadBillByDate(date);
             map.put("msg", "根据日期下载所有类型对账单成功！");
+            map.put("data", list);
         } catch (Exception e) {
             map.put("msg", e.getMessage());
         }
@@ -45,8 +48,9 @@ public class FtpController {
         Map map = new HashMap();
 
         try {
-            boolean flag = ftpService.downloadBillByBillType(billType);
+            List<String> list = ftpService.downloadBillByBillType(billType);
             map.put("msg", "根据对账单类型下载T-1日对账单成功！");
+            map.put("data", list);
         } catch (Exception e) {
             map.put("msg", e.getMessage());
         }
@@ -56,10 +60,10 @@ public class FtpController {
     @RequestMapping("/downloadBillByDateAndBillType")
     public Map downloadBillByDateAndBillType(@RequestParam String date, @RequestParam String billType) throws Exception {
         Map map = new HashMap();
-
         try {
-            boolean flag = ftpService.downloadBillByDateAndBillType(date, billType);
+            List<String> list = ftpService.downloadBillByDateAndBillType(date, billType);
             map.put("msg", "根据对账单类型和日期下载对账单成功！");
+            map.put("data", list);
         } catch (Exception e) {
             map.put("msg", e.getMessage());
         }

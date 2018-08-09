@@ -11,6 +11,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FtpUtil {
 
@@ -73,20 +75,21 @@ public class FtpUtil {
      * @param password
      * @param ftpPath
      * @param localPath
-     * @return
+     * @return list 下载成功的对账单名称
      * @throws Exception
      */
-    public static boolean downloadT1(String hostname,
-                                     Integer port,
-                                     String username,
-                                     String password,
-                                     String ftpPath,
-                                     String localPath) throws Exception {
+    public static List<String> downloadT1(String hostname,
+                                          Integer port,
+                                          String username,
+                                          String password,
+                                          String ftpPath,
+                                          String localPath) throws Exception {
         FTPClient ftpClient = new FTPClient();
         LocalDate localDate = LocalDate.now().minusDays(1);
         String date = localDate.toString().replace("-","");
         //连接FTP服务器
         connect(ftpClient,hostname,port,username,password);
+        List<String> list = new ArrayList<>();
         OutputStream os = null;
         if (!ftpClient.changeWorkingDirectory(ftpPath)) {
             disconnect(ftpClient);
@@ -106,6 +109,7 @@ public class FtpUtil {
                 File localFile = new File(localPath + File.separator + fileName);
                 os = new FileOutputStream(localFile);
                 ftpClient.retrieveFile(file.getName(), os);
+                list.add(fileName);
             }
         }
         if (os != null) {
@@ -113,7 +117,7 @@ public class FtpUtil {
         }
         //断开FTP服务器
         disconnect(ftpClient);
-        return true;
+        return list;
     }
 
     /**
@@ -125,10 +129,10 @@ public class FtpUtil {
      * @param password
      * @param ftpPath
      * @param localPath
-     * @return
+     * @return list 下载成功的对账单名称
      * @throws Exception
      */
-    public static boolean downloadBillByDate(String date,
+    public static List<String> downloadBillByDate(String date,
                                       String hostname,
                                       Integer port,
                                       String username,
@@ -138,6 +142,7 @@ public class FtpUtil {
         FTPClient ftpClient = new FTPClient();
         //连接FTP服务器
         connect(ftpClient,hostname,port,username,password);
+        List<String> list = new ArrayList<>();
         OutputStream os = null;
         if (!ftpClient.changeWorkingDirectory(ftpPath)) {
             disconnect(ftpClient);
@@ -157,6 +162,7 @@ public class FtpUtil {
                 File localFile = new File(localPath + File.separator + fileName);
                 os = new FileOutputStream(localFile);
                 ftpClient.retrieveFile(file.getName(), os);
+                list.add(fileName);
             }
         }
         if (os != null) {
@@ -164,7 +170,7 @@ public class FtpUtil {
         }
         //断开FTP服务器
         disconnect(ftpClient);
-        return true;
+        return list;
     }
 
     /**
@@ -176,10 +182,10 @@ public class FtpUtil {
      * @param password
      * @param ftpPath
      * @param localPath
-     * @return
+     * @return list 下载成功的对账单名称
      * @throws Exception
      */
-    public static boolean downloadBillByBillType(String billType,
+    public static List<String> downloadBillByBillType(String billType,
                                                  String hostname,
                                                  Integer port,
                                                  String username,
@@ -191,6 +197,7 @@ public class FtpUtil {
         String date = localDate.toString().replace("-","");
         //连接FTP服务器
         connect(ftpClient,hostname,port,username,password);
+        List<String> list = new ArrayList<>();
         OutputStream os = null;
         if (!ftpClient.changeWorkingDirectory(ftpPath)) {
             disconnect(ftpClient);
@@ -210,6 +217,7 @@ public class FtpUtil {
                 File localFile = new File(localPath + File.separator + fileName);
                 os = new FileOutputStream(localFile);
                 ftpClient.retrieveFile(file.getName(), os);
+                list.add(fileName);
             }
         }
         if (os != null) {
@@ -217,7 +225,7 @@ public class FtpUtil {
         }
         //断开FTP服务器
         disconnect(ftpClient);
-        return true;
+        return list;
     }
     /**
      *
@@ -229,10 +237,10 @@ public class FtpUtil {
      * @param password
      * @param ftpPath
      * @param localPath
-     * @return
+     * @return list 下载成功的对账单名称
      * @throws Exception
      */
-    public static boolean downloadBillByDateAndBillType(String date,
+    public static List<String> downloadBillByDateAndBillType(String date,
                                              String billType,
                                              String hostname,
                                              Integer port,
@@ -243,6 +251,7 @@ public class FtpUtil {
         FTPClient ftpClient = new FTPClient();
         //连接FTP服务器
         connect(ftpClient,hostname,port,username,password);
+        List<String> list = new ArrayList<>();
         OutputStream os = null;
         if (!ftpClient.changeWorkingDirectory(ftpPath)) {
             disconnect(ftpClient);
@@ -262,6 +271,7 @@ public class FtpUtil {
                 File localFile = new File(localPath + File.separator + fileName);
                 os = new FileOutputStream(localFile);
                 ftpClient.retrieveFile(file.getName(), os);
+                list.add(fileName);
             }
         }
         if (os != null) {
@@ -269,7 +279,7 @@ public class FtpUtil {
         }
         //断开FTP服务器
         disconnect(ftpClient);
-        return true;
+        return list;
     }
 
     public static void main(String[] args) throws Exception{

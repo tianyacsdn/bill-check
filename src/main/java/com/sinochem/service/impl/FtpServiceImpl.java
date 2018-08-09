@@ -5,6 +5,8 @@ import com.sinochem.util.FtpUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FtpServiceImpl implements FtpService {
 
@@ -22,26 +24,26 @@ public class FtpServiceImpl implements FtpService {
     private String localPath;
 
     @Override
-    public boolean dowloadBill() throws Exception {
-        boolean flag = FtpUtil.downloadT1(hostname, port, username, password, ftpPath, localPath);
-        return flag;
+    public List<String> dowloadBill() throws Exception {
+        List<String> list = FtpUtil.downloadT1(hostname, port, username, password, ftpPath, localPath);
+        return list;
     }
 
     @Override
-    public boolean downloadBillByDate(String date) throws Exception {
-        boolean flag = FtpUtil.downloadBillByDate(date, hostname, port, username, password, ftpPath, localPath);
-        return flag;
+    public List<String> downloadBillByDate(String date) throws Exception {
+        List<String> list = FtpUtil.downloadBillByDate(date, hostname, port, username, password, ftpPath, localPath);
+        return list;
     }
 
     @Override
-    public boolean downloadBillByBillType(String billType) throws Exception {
-        boolean flag = FtpUtil.downloadBillByBillType(billType, hostname, port, username, password, ftpPath, localPath);
-        return flag;
+    public List<String> downloadBillByBillType(String billType) throws Exception {
+        List<String> list = FtpUtil.downloadBillByBillType(billType, hostname, port, username, password, ftpPath, localPath);
+        return list;
     }
 
     @Override
-    public boolean downloadBillByDateAndBillType(String date, String billType) throws Exception {
-        boolean flag = FtpUtil.downloadBillByDateAndBillType(date, billType, hostname, port, username, password, ftpPath, localPath);
-        return flag;
+    public List<String> downloadBillByDateAndBillType(String date, String billType) throws Exception {
+        List<String> list = FtpUtil.downloadBillByDateAndBillType(date, billType, hostname, port, username, password, ftpPath, localPath);
+        return list;
     }
 }

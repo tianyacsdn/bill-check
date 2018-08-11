@@ -3,14 +3,8 @@ package com.sinochem.mapper;
 import com.sinochem.domain.BillBankBalance;
 import com.sinochem.domain.BillBankBalanceExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Repository;
 
-@Repository
-@Mapper
 public interface BillBankBalanceMapper {
     int countByExample(BillBankBalanceExample example);
 

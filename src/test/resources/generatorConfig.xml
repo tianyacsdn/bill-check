@@ -43,7 +43,12 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
+        <!--
         <table tableName="acps_balance_check_task" schema="" domainObjectName="AcpsBalanceCheckTask">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <table tableName="bill_balance_mistake" schema="" domainObjectName="BillBalanceMistake">
             <property name="useActualColumnNames" value="false"/>
         </table>
     </context>

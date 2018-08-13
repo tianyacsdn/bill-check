@@ -234,6 +234,47 @@
                     <include>**/*.xml</include>
                 </includes>
             </resource>
+            <resource>
+                <directory>deploy/${env.id}</directory>
+                <filtering>true</filtering>
+            </resource>
         </resources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env.id>dev</env.id>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-devtools</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+            <repositories>
+                <repository>
+                    <id>public-repo</id>
+                    <url>http://1.203.115.214:8881/nexus/content/groups/public/</url>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env.id>test</env.id>
+            </properties>
+            <repositories>
+                <repository>
+                    <id>public-repo</id>
+                    <url>http://1.203.115.214:8881/nexus/content/groups/public/</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
 </project>

@@ -1,8 +1,6 @@
 package com.sinochem.controller;
 
-import com.sinochem.remote.RemoteService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.sinochem.service.RestService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,15 +8,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/remote")
-public class RemoteController {
-    @Autowired
-    RemoteService remoteService;
+@RequestMapping("/rest")
+public class RestCallController {
+    private final RestService restService;
+
+    public RestCallController(RestService restService) {
+        this.restService = restService;
+    }
 
     @RequestMapping("/query")
     public Map getSubAccountBalance() {
         Map<String, Object> result = new HashMap<>();
-        Object obj = remoteService.getSubAccountBalance();
+        Object obj = restService.getSubAccountBalance();
         result.put("data", obj);
         return result;
     }

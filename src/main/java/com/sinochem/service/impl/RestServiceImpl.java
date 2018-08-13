@@ -1,7 +1,6 @@
-package com.sinochem.remote.impl;
+package com.sinochem.service.impl;
 
-import com.sinochem.domain.RemoteResponse;
-import com.sinochem.remote.RemoteService;
+import com.sinochem.service.RestService;
 import com.sinochem.util.JsonUtil;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,13 +12,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class RemoteServiceImpl implements RemoteService {
+public class RestServiceImpl implements RestService {
+
     private final RestTemplate restTemplate;
 
-    public RemoteServiceImpl(RestTemplate restTemplate) {
+    public RestServiceImpl(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
-
     @Override
     public Object getSubAccountBalance() {
         Map<String, String> param = new HashMap<>();
@@ -30,7 +29,7 @@ public class RemoteServiceImpl implements RemoteService {
         headers.add("Accept", MediaType.APPLICATION_JSON.toString());
         String reqParam = JsonUtil.jsonStr(param);
         HttpEntity<String> formEntity = new HttpEntity<String>(reqParam, headers);
-        RemoteResponse obj = restTemplate.postForObject("http://localhost:16000/acps/balancebyacctnum",formEntity,RemoteResponse.class);
+        Object obj = restTemplate.postForObject("http://127.0.0.1:8080/balance/query",formEntity,Object.class);
         return obj;
     }
 }

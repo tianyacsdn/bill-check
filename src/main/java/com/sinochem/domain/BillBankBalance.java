@@ -6,9 +6,9 @@ import java.util.Date;
 public class BillBankBalance {
     private Long id;
 
-    private String thirdType;
+    private String gatewayChannel;
 
-    private String thirdNum;
+    private String gatewayChannelCode;
 
     private String tradeType;
 
@@ -38,20 +38,20 @@ public class BillBankBalance {
         this.id = id;
     }
 
-    public String getThirdType() {
-        return thirdType;
+    public String getGatewayChannel() {
+        return gatewayChannel;
     }
 
-    public void setThirdType(String thirdType) {
-        this.thirdType = thirdType == null ? null : thirdType.trim();
+    public void setGatewayChannel(String gatewayChannel) {
+        this.gatewayChannel = gatewayChannel == null ? null : gatewayChannel.trim();
     }
 
-    public String getThirdNum() {
-        return thirdNum;
+    public String getGatewayChannelCode() {
+        return gatewayChannelCode;
     }
 
-    public void setThirdNum(String thirdNum) {
-        this.thirdNum = thirdNum == null ? null : thirdNum.trim();
+    public void setGatewayChannelCode(String gatewayChannelCode) {
+        this.gatewayChannelCode = gatewayChannelCode == null ? null : gatewayChannelCode.trim();
     }
 
     public String getTradeType() {

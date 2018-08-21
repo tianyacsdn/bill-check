@@ -14,6 +14,10 @@ public class BillBalanceMistake {
 
     private Integer acctType;
 
+    private String gatewayChannel;
+
+    private String gatewayChannelCode;
+
     private BigDecimal bankTotalBalance;
 
     private BigDecimal acpsTotalBalance;
@@ -80,6 +84,22 @@ public class BillBalanceMistake {
 
     public void setAcctType(Integer acctType) {
         this.acctType = acctType;
+    }
+
+    public String getGatewayChannel() {
+        return gatewayChannel;
+    }
+
+    public void setGatewayChannel(String gatewayChannel) {
+        this.gatewayChannel = gatewayChannel == null ? null : gatewayChannel.trim();
+    }
+
+    public String getGatewayChannelCode() {
+        return gatewayChannelCode;
+    }
+
+    public void setGatewayChannelCode(String gatewayChannelCode) {
+        this.gatewayChannelCode = gatewayChannelCode == null ? null : gatewayChannelCode.trim();
     }
 
     public BigDecimal getBankTotalBalance() {

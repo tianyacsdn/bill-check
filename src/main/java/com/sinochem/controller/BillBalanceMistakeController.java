@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -21,6 +22,14 @@ public class BillBalanceMistakeController {
         Map map = new HashMap();
         boolean flag = billBalanceMistakeService.addMistake(record);
         map.put("msg", flag);
+        return map;
+    }
+
+    @RequestMapping(value = "/query")
+    public Map listMistake() {
+        Map map = new HashMap();
+        List<BillBalanceMistake> list = billBalanceMistakeService.listMistake();
+        map.put("data", list);
         return map;
     }
 }

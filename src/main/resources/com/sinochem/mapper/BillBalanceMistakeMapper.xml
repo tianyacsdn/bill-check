@@ -7,6 +7,8 @@
     <result column="cust_id" jdbcType="BIGINT" property="custId" />
     <result column="acct_name" jdbcType="VARCHAR" property="acctName" />
     <result column="acct_type" jdbcType="INTEGER" property="acctType" />
+    <result column="gateway_channel" jdbcType="VARCHAR" property="gatewayChannel" />
+    <result column="gateway_channel_code" jdbcType="VARCHAR" property="gatewayChannelCode" />
     <result column="bank_total_balance" jdbcType="DECIMAL" property="bankTotalBalance" />
     <result column="acps_total_balance" jdbcType="DECIMAL" property="acpsTotalBalance" />
     <result column="bank_available_balance" jdbcType="DECIMAL" property="bankAvailableBalance" />
@@ -81,10 +83,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, acct_num, cust_id, acct_name, acct_type, bank_total_balance, acps_total_balance, 
-    bank_available_balance, acps_available_balance, bank_available_draw_balance, acps_available_draw_balance, 
-    bank_frozen_balance, acps_frozen_balance, check_time, check_status, create_time, 
-    update_time, remark, opt_id
+    id, acct_num, cust_id, acct_name, acct_type, gateway_channel, gateway_channel_code, 
+    bank_total_balance, acps_total_balance, bank_available_balance, acps_available_balance, 
+    bank_available_draw_balance, acps_available_draw_balance, bank_frozen_balance, acps_frozen_balance, 
+    check_time, check_status, create_time, update_time, remark, opt_id
   </sql>
   <select id="selectByExample" parameterType="com.sinochem.domain.BillBalanceMistakeExample" resultMap="BaseResultMap">
     select
@@ -118,21 +120,21 @@
   </delete>
   <insert id="insert" parameterType="com.sinochem.domain.BillBalanceMistake">
     insert into bill_balance_mistake (id, acct_num, cust_id, 
-      acct_name, acct_type, bank_total_balance, 
-      acps_total_balance, bank_available_balance, 
-      acps_available_balance, bank_available_draw_balance, 
-      acps_available_draw_balance, bank_frozen_balance, 
-      acps_frozen_balance, check_time, check_status, 
-      create_time, update_time, remark, 
-      opt_id)
+      acct_name, acct_type, gateway_channel, 
+      gateway_channel_code, bank_total_balance, acps_total_balance, 
+      bank_available_balance, acps_available_balance, 
+      bank_available_draw_balance, acps_available_draw_balance, 
+      bank_frozen_balance, acps_frozen_balance, check_time, 
+      check_status, create_time, update_time, 
+      remark, opt_id)
     values (#{id,jdbcType=BIGINT}, #{acctNum,jdbcType=VARCHAR}, #{custId,jdbcType=BIGINT}, 
-      #{acctName,jdbcType=VARCHAR}, #{acctType,jdbcType=INTEGER}, #{bankTotalBalance,jdbcType=DECIMAL}, 
-      #{acpsTotalBalance,jdbcType=DECIMAL}, #{bankAvailableBalance,jdbcType=DECIMAL}, 
-      #{acpsAvailableBalance,jdbcType=DECIMAL}, #{bankAvailableDrawBalance,jdbcType=DECIMAL}, 
-      #{acpsAvailableDrawBalance,jdbcType=DECIMAL}, #{bankFrozenBalance,jdbcType=DECIMAL}, 
-      #{acpsFrozenBalance,jdbcType=DECIMAL}, #{checkTime,jdbcType=TIMESTAMP}, #{checkStatus,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
-      #{optId,jdbcType=BIGINT})
+      #{acctName,jdbcType=VARCHAR}, #{acctType,jdbcType=INTEGER}, #{gatewayChannel,jdbcType=VARCHAR}, 
+      #{gatewayChannelCode,jdbcType=VARCHAR}, #{bankTotalBalance,jdbcType=DECIMAL}, #{acpsTotalBalance,jdbcType=DECIMAL}, 
+      #{bankAvailableBalance,jdbcType=DECIMAL}, #{acpsAvailableBalance,jdbcType=DECIMAL}, 
+      #{bankAvailableDrawBalance,jdbcType=DECIMAL}, #{acpsAvailableDrawBalance,jdbcType=DECIMAL}, 
+      #{bankFrozenBalance,jdbcType=DECIMAL}, #{acpsFrozenBalance,jdbcType=DECIMAL}, #{checkTime,jdbcType=TIMESTAMP}, 
+      #{checkStatus,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{optId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.sinochem.domain.BillBalanceMistake">
     insert into bill_balance_mistake
@@ -151,6 +153,12 @@
       </if>
       <if test="acctType != null">
         acct_type,
+      </if>
+      <if test="gatewayChannel != null">
+        gateway_channel,
+      </if>
+      <if test="gatewayChannelCode != null">
+        gateway_channel_code,
       </if>
       <if test="bankTotalBalance != null">
         bank_total_balance,
@@ -210,6 +218,12 @@
       </if>
       <if test="acctType != null">
         #{acctType,jdbcType=INTEGER},
+      </if>
+      <if test="gatewayChannel != null">
+        #{gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayChannelCode != null">
+        #{gatewayChannelCode,jdbcType=VARCHAR},
       </if>
       <if test="bankTotalBalance != null">
         #{bankTotalBalance,jdbcType=DECIMAL},
@@ -279,6 +293,12 @@
       <if test="record.acctType != null">
         acct_type = #{record.acctType,jdbcType=INTEGER},
       </if>
+      <if test="record.gatewayChannel != null">
+        gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gatewayChannelCode != null">
+        gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
+      </if>
       <if test="record.bankTotalBalance != null">
         bank_total_balance = #{record.bankTotalBalance,jdbcType=DECIMAL},
       </if>
@@ -333,6 +353,8 @@
       cust_id = #{record.custId,jdbcType=BIGINT},
       acct_name = #{record.acctName,jdbcType=VARCHAR},
       acct_type = #{record.acctType,jdbcType=INTEGER},
+      gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+      gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
       bank_total_balance = #{record.bankTotalBalance,jdbcType=DECIMAL},
       acps_total_balance = #{record.acpsTotalBalance,jdbcType=DECIMAL},
       bank_available_balance = #{record.bankAvailableBalance,jdbcType=DECIMAL},
@@ -365,6 +387,12 @@
       </if>
       <if test="acctType != null">
         acct_type = #{acctType,jdbcType=INTEGER},
+      </if>
+      <if test="gatewayChannel != null">
+        gateway_channel = #{gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayChannelCode != null">
+        gateway_channel_code = #{gatewayChannelCode,jdbcType=VARCHAR},
       </if>
       <if test="bankTotalBalance != null">
         bank_total_balance = #{bankTotalBalance,jdbcType=DECIMAL},
@@ -417,6 +445,8 @@
       cust_id = #{custId,jdbcType=BIGINT},
       acct_name = #{acctName,jdbcType=VARCHAR},
       acct_type = #{acctType,jdbcType=INTEGER},
+      gateway_channel = #{gatewayChannel,jdbcType=VARCHAR},
+      gateway_channel_code = #{gatewayChannelCode,jdbcType=VARCHAR},
       bank_total_balance = #{bankTotalBalance,jdbcType=DECIMAL},
       acps_total_balance = #{acpsTotalBalance,jdbcType=DECIMAL},
       bank_available_balance = #{bankAvailableBalance,jdbcType=DECIMAL},

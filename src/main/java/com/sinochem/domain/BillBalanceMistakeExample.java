@@ -426,6 +426,146 @@ public class BillBalanceMistakeExample {
             return (Criteria) this;
         }
 
+        public Criteria andGatewayChannelIsNull() {
+            addCriterion("gateway_channel is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelIsNotNull() {
+            addCriterion("gateway_channel is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelEqualTo(String value) {
+            addCriterion("gateway_channel =", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelNotEqualTo(String value) {
+            addCriterion("gateway_channel <>", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelGreaterThan(String value) {
+            addCriterion("gateway_channel >", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelGreaterThanOrEqualTo(String value) {
+            addCriterion("gateway_channel >=", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelLessThan(String value) {
+            addCriterion("gateway_channel <", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelLessThanOrEqualTo(String value) {
+            addCriterion("gateway_channel <=", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelLike(String value) {
+            addCriterion("gateway_channel like", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelNotLike(String value) {
+            addCriterion("gateway_channel not like", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelIn(List<String> values) {
+            addCriterion("gateway_channel in", values, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelNotIn(List<String> values) {
+            addCriterion("gateway_channel not in", values, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelBetween(String value1, String value2) {
+            addCriterion("gateway_channel between", value1, value2, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelNotBetween(String value1, String value2) {
+            addCriterion("gateway_channel not between", value1, value2, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeIsNull() {
+            addCriterion("gateway_channel_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeIsNotNull() {
+            addCriterion("gateway_channel_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeEqualTo(String value) {
+            addCriterion("gateway_channel_code =", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeNotEqualTo(String value) {
+            addCriterion("gateway_channel_code <>", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeGreaterThan(String value) {
+            addCriterion("gateway_channel_code >", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("gateway_channel_code >=", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeLessThan(String value) {
+            addCriterion("gateway_channel_code <", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeLessThanOrEqualTo(String value) {
+            addCriterion("gateway_channel_code <=", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeLike(String value) {
+            addCriterion("gateway_channel_code like", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeNotLike(String value) {
+            addCriterion("gateway_channel_code not like", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeIn(List<String> values) {
+            addCriterion("gateway_channel_code in", values, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeNotIn(List<String> values) {
+            addCriterion("gateway_channel_code not in", values, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeBetween(String value1, String value2) {
+            addCriterion("gateway_channel_code between", value1, value2, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeNotBetween(String value1, String value2) {
+            addCriterion("gateway_channel_code not between", value1, value2, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
         public Criteria andBankTotalBalanceIsNull() {
             addCriterion("bank_total_balance is null");
             return (Criteria) this;

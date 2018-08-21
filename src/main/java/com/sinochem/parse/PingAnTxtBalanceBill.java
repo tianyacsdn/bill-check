@@ -26,8 +26,8 @@ public class PingAnTxtBalanceBill implements TxtBalanceBill {
                 for (int i = 0; i < fileDatas.length; i++) {
                     BillBankBalance billBankBalance = new BillBankBalance();
                     billBankBalance.setBillDate(new SimpleDateFormat("yyyyMMdd").parse(billDate));
-                    billBankBalance.setThirdNum(thirdNum);
-                    billBankBalance.setThirdType("PingAn");
+                    billBankBalance.setGatewayChannel("平安银行");
+                    billBankBalance.setGatewayChannelCode(thirdNum);
                     String rowData = fileDatas[i];
                     String[] colData = rowData.split("&");
                     billBankBalance.setTransSq(colData[0]);
@@ -57,8 +57,8 @@ public class PingAnTxtBalanceBill implements TxtBalanceBill {
                     for (int i = 0; i < fileDatas.length; i++) {
                         BillBankBalance billBankBalance = new BillBankBalance();
                         billBankBalance.setBillDate(new SimpleDateFormat("yyyyMMdd").parse(billDate));
-                        billBankBalance.setThirdNum(thirdNum);
-                        billBankBalance.setThirdType("PingAn");
+                        billBankBalance.setGatewayChannel("平安银行");
+                        billBankBalance.setGatewayChannelCode(thirdNum);
                         String rowData = fileDatas[i];
                         String[] colData = rowData.split("&");
                         billBankBalance.setTransSq(colData[0]);

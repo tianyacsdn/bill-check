@@ -3,8 +3,8 @@
 <mapper namespace="com.sinochem.mapper.BillBankBalanceMapper">
   <resultMap id="BaseResultMap" type="com.sinochem.domain.BillBankBalance">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="third_type" jdbcType="VARCHAR" property="thirdType" />
-    <result column="third_num" jdbcType="VARCHAR" property="thirdNum" />
+    <result column="gateway_channel" jdbcType="VARCHAR" property="gatewayChannel" />
+    <result column="gateway_channel_code" jdbcType="VARCHAR" property="gatewayChannelCode" />
     <result column="trade_type" jdbcType="VARCHAR" property="tradeType" />
     <result column="bill_date" jdbcType="TIMESTAMP" property="billDate" />
     <result column="trans_sq" jdbcType="VARCHAR" property="transSq" />
@@ -75,8 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, third_type, third_num, trade_type, bill_date, trans_sq, third_custId, acct_id, 
-    tran_amount, opt_id, remark, create_time, update_time
+    id, gateway_channel, gateway_channel_code, trade_type, bill_date, trans_sq, third_custId, 
+    acct_id, tran_amount, opt_id, remark, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.sinochem.domain.BillBankBalanceExample" resultMap="BaseResultMap">
     select
@@ -109,12 +109,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sinochem.domain.BillBankBalance">
-    insert into bill_bank_balance (id, third_type, third_num, 
+    insert into bill_bank_balance (id, gateway_channel, gateway_channel_code, 
       trade_type, bill_date, trans_sq, 
       third_custId, acct_id, tran_amount, 
       opt_id, remark, create_time, 
       update_time)
-    values (#{id,jdbcType=BIGINT}, #{thirdType,jdbcType=VARCHAR}, #{thirdNum,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{gatewayChannel,jdbcType=VARCHAR}, #{gatewayChannelCode,jdbcType=VARCHAR}, 
       #{tradeType,jdbcType=VARCHAR}, #{billDate,jdbcType=TIMESTAMP}, #{transSq,jdbcType=VARCHAR}, 
       #{thirdCustid,jdbcType=VARCHAR}, #{acctId,jdbcType=VARCHAR}, #{tranAmount,jdbcType=DECIMAL}, 
       #{optId,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
@@ -126,11 +126,11 @@
       <if test="id != null">
         id,
       </if>
-      <if test="thirdType != null">
-        third_type,
+      <if test="gatewayChannel != null">
+        gateway_channel,
       </if>
-      <if test="thirdNum != null">
-        third_num,
+      <if test="gatewayChannelCode != null">
+        gateway_channel_code,
       </if>
       <if test="tradeType != null">
         trade_type,
@@ -167,11 +167,11 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="thirdType != null">
-        #{thirdType,jdbcType=VARCHAR},
+      <if test="gatewayChannel != null">
+        #{gatewayChannel,jdbcType=VARCHAR},
       </if>
-      <if test="thirdNum != null">
-        #{thirdNum,jdbcType=VARCHAR},
+      <if test="gatewayChannelCode != null">
+        #{gatewayChannelCode,jdbcType=VARCHAR},
       </if>
       <if test="tradeType != null">
         #{tradeType,jdbcType=VARCHAR},
@@ -217,11 +217,11 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.thirdType != null">
-        third_type = #{record.thirdType,jdbcType=VARCHAR},
+      <if test="record.gatewayChannel != null">
+        gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
       </if>
-      <if test="record.thirdNum != null">
-        third_num = #{record.thirdNum,jdbcType=VARCHAR},
+      <if test="record.gatewayChannelCode != null">
+        gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
       </if>
       <if test="record.tradeType != null">
         trade_type = #{record.tradeType,jdbcType=VARCHAR},
@@ -261,8 +261,8 @@
   <update id="updateByExample" parameterType="map">
     update bill_bank_balance
     set id = #{record.id,jdbcType=BIGINT},
-      third_type = #{record.thirdType,jdbcType=VARCHAR},
-      third_num = #{record.thirdNum,jdbcType=VARCHAR},
+      gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+      gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
       trade_type = #{record.tradeType,jdbcType=VARCHAR},
       bill_date = #{record.billDate,jdbcType=TIMESTAMP},
       trans_sq = #{record.transSq,jdbcType=VARCHAR},
@@ -280,11 +280,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.sinochem.domain.BillBankBalance">
     update bill_bank_balance
     <set>
-      <if test="thirdType != null">
-        third_type = #{thirdType,jdbcType=VARCHAR},
+      <if test="gatewayChannel != null">
+        gateway_channel = #{gatewayChannel,jdbcType=VARCHAR},
       </if>
-      <if test="thirdNum != null">
-        third_num = #{thirdNum,jdbcType=VARCHAR},
+      <if test="gatewayChannelCode != null">
+        gateway_channel_code = #{gatewayChannelCode,jdbcType=VARCHAR},
       </if>
       <if test="tradeType != null">
         trade_type = #{tradeType,jdbcType=VARCHAR},
@@ -321,8 +321,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sinochem.domain.BillBankBalance">
     update bill_bank_balance
-    set third_type = #{thirdType,jdbcType=VARCHAR},
-      third_num = #{thirdNum,jdbcType=VARCHAR},
+    set gateway_channel = #{gatewayChannel,jdbcType=VARCHAR},
+      gateway_channel_code = #{gatewayChannelCode,jdbcType=VARCHAR},
       trade_type = #{tradeType,jdbcType=VARCHAR},
       bill_date = #{billDate,jdbcType=TIMESTAMP},
       trans_sq = #{transSq,jdbcType=VARCHAR},

@@ -166,143 +166,143 @@ public class BillBankBalanceExample {
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeIsNull() {
-            addCriterion("third_type is null");
+        public Criteria andGatewayChannelIsNull() {
+            addCriterion("gateway_channel is null");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeIsNotNull() {
-            addCriterion("third_type is not null");
+        public Criteria andGatewayChannelIsNotNull() {
+            addCriterion("gateway_channel is not null");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeEqualTo(String value) {
-            addCriterion("third_type =", value, "thirdType");
+        public Criteria andGatewayChannelEqualTo(String value) {
+            addCriterion("gateway_channel =", value, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeNotEqualTo(String value) {
-            addCriterion("third_type <>", value, "thirdType");
+        public Criteria andGatewayChannelNotEqualTo(String value) {
+            addCriterion("gateway_channel <>", value, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeGreaterThan(String value) {
-            addCriterion("third_type >", value, "thirdType");
+        public Criteria andGatewayChannelGreaterThan(String value) {
+            addCriterion("gateway_channel >", value, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeGreaterThanOrEqualTo(String value) {
-            addCriterion("third_type >=", value, "thirdType");
+        public Criteria andGatewayChannelGreaterThanOrEqualTo(String value) {
+            addCriterion("gateway_channel >=", value, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeLessThan(String value) {
-            addCriterion("third_type <", value, "thirdType");
+        public Criteria andGatewayChannelLessThan(String value) {
+            addCriterion("gateway_channel <", value, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeLessThanOrEqualTo(String value) {
-            addCriterion("third_type <=", value, "thirdType");
+        public Criteria andGatewayChannelLessThanOrEqualTo(String value) {
+            addCriterion("gateway_channel <=", value, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeLike(String value) {
-            addCriterion("third_type like", value, "thirdType");
+        public Criteria andGatewayChannelLike(String value) {
+            addCriterion("gateway_channel like", value, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeNotLike(String value) {
-            addCriterion("third_type not like", value, "thirdType");
+        public Criteria andGatewayChannelNotLike(String value) {
+            addCriterion("gateway_channel not like", value, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeIn(List<String> values) {
-            addCriterion("third_type in", values, "thirdType");
+        public Criteria andGatewayChannelIn(List<String> values) {
+            addCriterion("gateway_channel in", values, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeNotIn(List<String> values) {
-            addCriterion("third_type not in", values, "thirdType");
+        public Criteria andGatewayChannelNotIn(List<String> values) {
+            addCriterion("gateway_channel not in", values, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeBetween(String value1, String value2) {
-            addCriterion("third_type between", value1, value2, "thirdType");
+        public Criteria andGatewayChannelBetween(String value1, String value2) {
+            addCriterion("gateway_channel between", value1, value2, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdTypeNotBetween(String value1, String value2) {
-            addCriterion("third_type not between", value1, value2, "thirdType");
+        public Criteria andGatewayChannelNotBetween(String value1, String value2) {
+            addCriterion("gateway_channel not between", value1, value2, "gatewayChannel");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumIsNull() {
-            addCriterion("third_num is null");
+        public Criteria andGatewayChannelCodeIsNull() {
+            addCriterion("gateway_channel_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumIsNotNull() {
-            addCriterion("third_num is not null");
+        public Criteria andGatewayChannelCodeIsNotNull() {
+            addCriterion("gateway_channel_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumEqualTo(String value) {
-            addCriterion("third_num =", value, "thirdNum");
+        public Criteria andGatewayChannelCodeEqualTo(String value) {
+            addCriterion("gateway_channel_code =", value, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumNotEqualTo(String value) {
-            addCriterion("third_num <>", value, "thirdNum");
+        public Criteria andGatewayChannelCodeNotEqualTo(String value) {
+            addCriterion("gateway_channel_code <>", value, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumGreaterThan(String value) {
-            addCriterion("third_num >", value, "thirdNum");
+        public Criteria andGatewayChannelCodeGreaterThan(String value) {
+            addCriterion("gateway_channel_code >", value, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumGreaterThanOrEqualTo(String value) {
-            addCriterion("third_num >=", value, "thirdNum");
+        public Criteria andGatewayChannelCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("gateway_channel_code >=", value, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumLessThan(String value) {
-            addCriterion("third_num <", value, "thirdNum");
+        public Criteria andGatewayChannelCodeLessThan(String value) {
+            addCriterion("gateway_channel_code <", value, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumLessThanOrEqualTo(String value) {
-            addCriterion("third_num <=", value, "thirdNum");
+        public Criteria andGatewayChannelCodeLessThanOrEqualTo(String value) {
+            addCriterion("gateway_channel_code <=", value, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumLike(String value) {
-            addCriterion("third_num like", value, "thirdNum");
+        public Criteria andGatewayChannelCodeLike(String value) {
+            addCriterion("gateway_channel_code like", value, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumNotLike(String value) {
-            addCriterion("third_num not like", value, "thirdNum");
+        public Criteria andGatewayChannelCodeNotLike(String value) {
+            addCriterion("gateway_channel_code not like", value, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumIn(List<String> values) {
-            addCriterion("third_num in", values, "thirdNum");
+        public Criteria andGatewayChannelCodeIn(List<String> values) {
+            addCriterion("gateway_channel_code in", values, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumNotIn(List<String> values) {
-            addCriterion("third_num not in", values, "thirdNum");
+        public Criteria andGatewayChannelCodeNotIn(List<String> values) {
+            addCriterion("gateway_channel_code not in", values, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumBetween(String value1, String value2) {
-            addCriterion("third_num between", value1, value2, "thirdNum");
+        public Criteria andGatewayChannelCodeBetween(String value1, String value2) {
+            addCriterion("gateway_channel_code between", value1, value2, "gatewayChannelCode");
             return (Criteria) this;
         }
 
-        public Criteria andThirdNumNotBetween(String value1, String value2) {
-            addCriterion("third_num not between", value1, value2, "thirdNum");
+        public Criteria andGatewayChannelCodeNotBetween(String value1, String value2) {
+            addCriterion("gateway_channel_code not between", value1, value2, "gatewayChannelCode");
             return (Criteria) this;
         }
 

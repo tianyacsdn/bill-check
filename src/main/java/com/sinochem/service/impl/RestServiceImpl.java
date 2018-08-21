@@ -34,6 +34,7 @@ public class RestServiceImpl implements RestService {
         String reqParam = JsonUtil.jsonStr(param);
         HttpEntity<String> formEntity = new HttpEntity<String>(reqParam, headers);
         Object obj = restTemplate.postForObject(balanceQueryUrl,formEntity,Object.class);
+
         return obj;
     }
 }

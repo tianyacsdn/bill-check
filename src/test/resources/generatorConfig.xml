@@ -38,9 +38,11 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
+        <!--
         <table tableName="bill_bank_balance" schema="" domainObjectName="BillBankBalance">
             <property name="useActualColumnNames" value="false"/>
         </table>
+        -->
         <!--
         <table tableName="acps_balance_check_task" schema="" domainObjectName="AcpsBalanceCheckTask">
             <property name="useActualColumnNames" value="false"/>
@@ -51,5 +53,8 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
+        <table tableName="acps_acct_mast" schema="" domainObjectName="AcpsAcctMast">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
     </context>
 </generatorConfiguration>

@@ -236,6 +236,146 @@ public class AcpsBalanceCheckTaskExample {
             return (Criteria) this;
         }
 
+        public Criteria andSinoChemTradeIdIsNull() {
+            addCriterion("sino_chem_trade_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdIsNotNull() {
+            addCriterion("sino_chem_trade_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdEqualTo(String value) {
+            addCriterion("sino_chem_trade_id =", value, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdNotEqualTo(String value) {
+            addCriterion("sino_chem_trade_id <>", value, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdGreaterThan(String value) {
+            addCriterion("sino_chem_trade_id >", value, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdGreaterThanOrEqualTo(String value) {
+            addCriterion("sino_chem_trade_id >=", value, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdLessThan(String value) {
+            addCriterion("sino_chem_trade_id <", value, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdLessThanOrEqualTo(String value) {
+            addCriterion("sino_chem_trade_id <=", value, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdLike(String value) {
+            addCriterion("sino_chem_trade_id like", value, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdNotLike(String value) {
+            addCriterion("sino_chem_trade_id not like", value, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdIn(List<String> values) {
+            addCriterion("sino_chem_trade_id in", values, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdNotIn(List<String> values) {
+            addCriterion("sino_chem_trade_id not in", values, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdBetween(String value1, String value2) {
+            addCriterion("sino_chem_trade_id between", value1, value2, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSinoChemTradeIdNotBetween(String value1, String value2) {
+            addCriterion("sino_chem_trade_id not between", value1, value2, "sinoChemTradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumIsNull() {
+            addCriterion("mast_acct_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumIsNotNull() {
+            addCriterion("mast_acct_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumEqualTo(String value) {
+            addCriterion("mast_acct_num =", value, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumNotEqualTo(String value) {
+            addCriterion("mast_acct_num <>", value, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumGreaterThan(String value) {
+            addCriterion("mast_acct_num >", value, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumGreaterThanOrEqualTo(String value) {
+            addCriterion("mast_acct_num >=", value, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumLessThan(String value) {
+            addCriterion("mast_acct_num <", value, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumLessThanOrEqualTo(String value) {
+            addCriterion("mast_acct_num <=", value, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumLike(String value) {
+            addCriterion("mast_acct_num like", value, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumNotLike(String value) {
+            addCriterion("mast_acct_num not like", value, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumIn(List<String> values) {
+            addCriterion("mast_acct_num in", values, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumNotIn(List<String> values) {
+            addCriterion("mast_acct_num not in", values, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumBetween(String value1, String value2) {
+            addCriterion("mast_acct_num between", value1, value2, "mastAcctNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andMastAcctNumNotBetween(String value1, String value2) {
+            addCriterion("mast_acct_num not between", value1, value2, "mastAcctNum");
+            return (Criteria) this;
+        }
+
         public Criteria andAcctNumIsNull() {
             addCriterion("acct_num is null");
             return (Criteria) this;
@@ -363,6 +503,146 @@ public class AcpsBalanceCheckTaskExample {
 
         public Criteria andCustIdNotBetween(Long value1, Long value2) {
             addCriterion("cust_id not between", value1, value2, "custId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelIsNull() {
+            addCriterion("gateway_channel is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelIsNotNull() {
+            addCriterion("gateway_channel is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelEqualTo(String value) {
+            addCriterion("gateway_channel =", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelNotEqualTo(String value) {
+            addCriterion("gateway_channel <>", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelGreaterThan(String value) {
+            addCriterion("gateway_channel >", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelGreaterThanOrEqualTo(String value) {
+            addCriterion("gateway_channel >=", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelLessThan(String value) {
+            addCriterion("gateway_channel <", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelLessThanOrEqualTo(String value) {
+            addCriterion("gateway_channel <=", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelLike(String value) {
+            addCriterion("gateway_channel like", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelNotLike(String value) {
+            addCriterion("gateway_channel not like", value, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelIn(List<String> values) {
+            addCriterion("gateway_channel in", values, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelNotIn(List<String> values) {
+            addCriterion("gateway_channel not in", values, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelBetween(String value1, String value2) {
+            addCriterion("gateway_channel between", value1, value2, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelNotBetween(String value1, String value2) {
+            addCriterion("gateway_channel not between", value1, value2, "gatewayChannel");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeIsNull() {
+            addCriterion("gateway_channel_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeIsNotNull() {
+            addCriterion("gateway_channel_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeEqualTo(String value) {
+            addCriterion("gateway_channel_code =", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeNotEqualTo(String value) {
+            addCriterion("gateway_channel_code <>", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeGreaterThan(String value) {
+            addCriterion("gateway_channel_code >", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("gateway_channel_code >=", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeLessThan(String value) {
+            addCriterion("gateway_channel_code <", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeLessThanOrEqualTo(String value) {
+            addCriterion("gateway_channel_code <=", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeLike(String value) {
+            addCriterion("gateway_channel_code like", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeNotLike(String value) {
+            addCriterion("gateway_channel_code not like", value, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeIn(List<String> values) {
+            addCriterion("gateway_channel_code in", values, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeNotIn(List<String> values) {
+            addCriterion("gateway_channel_code not in", values, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeBetween(String value1, String value2) {
+            addCriterion("gateway_channel_code between", value1, value2, "gatewayChannelCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andGatewayChannelCodeNotBetween(String value1, String value2) {
+            addCriterion("gateway_channel_code not between", value1, value2, "gatewayChannelCode");
             return (Criteria) this;
         }
 
@@ -1003,6 +1283,126 @@ public class AcpsBalanceCheckTaskExample {
 
         public Criteria andOffsetNumNotBetween(Integer value1, Integer value2) {
             addCriterion("offset_num not between", value1, value2, "offsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusIsNull() {
+            addCriterion("realtime_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusIsNotNull() {
+            addCriterion("realtime_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusEqualTo(Integer value) {
+            addCriterion("realtime_status =", value, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusNotEqualTo(Integer value) {
+            addCriterion("realtime_status <>", value, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusGreaterThan(Integer value) {
+            addCriterion("realtime_status >", value, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("realtime_status >=", value, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusLessThan(Integer value) {
+            addCriterion("realtime_status <", value, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("realtime_status <=", value, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusIn(List<Integer> values) {
+            addCriterion("realtime_status in", values, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusNotIn(List<Integer> values) {
+            addCriterion("realtime_status not in", values, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusBetween(Integer value1, Integer value2) {
+            addCriterion("realtime_status between", value1, value2, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("realtime_status not between", value1, value2, "realtimeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumIsNull() {
+            addCriterion("realtime_offset_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumIsNotNull() {
+            addCriterion("realtime_offset_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumEqualTo(Integer value) {
+            addCriterion("realtime_offset_num =", value, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumNotEqualTo(Integer value) {
+            addCriterion("realtime_offset_num <>", value, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumGreaterThan(Integer value) {
+            addCriterion("realtime_offset_num >", value, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("realtime_offset_num >=", value, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumLessThan(Integer value) {
+            addCriterion("realtime_offset_num <", value, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumLessThanOrEqualTo(Integer value) {
+            addCriterion("realtime_offset_num <=", value, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumIn(List<Integer> values) {
+            addCriterion("realtime_offset_num in", values, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumNotIn(List<Integer> values) {
+            addCriterion("realtime_offset_num not in", values, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumBetween(Integer value1, Integer value2) {
+            addCriterion("realtime_offset_num between", value1, value2, "realtimeOffsetNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealtimeOffsetNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("realtime_offset_num not between", value1, value2, "realtimeOffsetNum");
             return (Criteria) this;
         }
 

@@ -4,8 +4,12 @@
   <resultMap id="BaseResultMap" type="com.sinochem.domain.AcpsBalanceCheckTask">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="sino_chem_order_id" jdbcType="VARCHAR" property="sinoChemOrderId" />
+    <result column="sino_chem_trade_id" jdbcType="VARCHAR" property="sinoChemTradeId" />
+    <result column="mast_acct_num" jdbcType="VARCHAR" property="mastAcctNum" />
     <result column="acct_num" jdbcType="VARCHAR" property="acctNum" />
     <result column="cust_id" jdbcType="BIGINT" property="custId" />
+    <result column="gateway_channel" jdbcType="VARCHAR" property="gatewayChannel" />
+    <result column="gateway_channel_code" jdbcType="VARCHAR" property="gatewayChannelCode" />
     <result column="dr_cr" jdbcType="VARCHAR" property="drCr" />
     <result column="trans_time" jdbcType="VARCHAR" property="transTime" />
     <result column="tran_type" jdbcType="VARCHAR" property="tranType" />
@@ -16,6 +20,8 @@
     <result column="acct_trans_dtl_sq" jdbcType="BIGINT" property="acctTransDtlSq" />
     <result column="banalce_status" jdbcType="INTEGER" property="banalceStatus" />
     <result column="offset_num" jdbcType="INTEGER" property="offsetNum" />
+    <result column="realtime_status" jdbcType="INTEGER" property="realtimeStatus" />
+    <result column="realtime_offset_num" jdbcType="INTEGER" property="realtimeOffsetNum" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
@@ -78,9 +84,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, sino_chem_order_id, acct_num, cust_id, dr_cr, trans_time, tran_type, cur_type, 
-    tran_amt, cur_bal_after_trans, cur_bal_before_trans, acct_trans_dtl_sq, banalce_status, 
-    offset_num, create_time, update_time
+    id, sino_chem_order_id, sino_chem_trade_id, mast_acct_num, acct_num, cust_id, gateway_channel, 
+    gateway_channel_code, dr_cr, trans_time, tran_type, cur_type, tran_amt, cur_bal_after_trans, 
+    cur_bal_before_trans, acct_trans_dtl_sq, banalce_status, offset_num, realtime_status, 
+    realtime_offset_num, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.sinochem.domain.AcpsBalanceCheckTaskExample" resultMap="BaseResultMap">
     select
@@ -113,17 +120,21 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sinochem.domain.AcpsBalanceCheckTask">
-    insert into acps_balance_check_task (id, sino_chem_order_id, acct_num, 
-      cust_id, dr_cr, trans_time, 
-      tran_type, cur_type, tran_amt, 
-      cur_bal_after_trans, cur_bal_before_trans, acct_trans_dtl_sq, 
-      banalce_status, offset_num, create_time, 
+    insert into acps_balance_check_task (id, sino_chem_order_id, sino_chem_trade_id, 
+      mast_acct_num, acct_num, cust_id, 
+      gateway_channel, gateway_channel_code, dr_cr, 
+      trans_time, tran_type, cur_type, 
+      tran_amt, cur_bal_after_trans, cur_bal_before_trans, 
+      acct_trans_dtl_sq, banalce_status, offset_num, 
+      realtime_status, realtime_offset_num, create_time, 
       update_time)
-    values (#{id,jdbcType=BIGINT}, #{sinoChemOrderId,jdbcType=VARCHAR}, #{acctNum,jdbcType=VARCHAR}, 
-      #{custId,jdbcType=BIGINT}, #{drCr,jdbcType=VARCHAR}, #{transTime,jdbcType=VARCHAR}, 
-      #{tranType,jdbcType=VARCHAR}, #{curType,jdbcType=VARCHAR}, #{tranAmt,jdbcType=DECIMAL}, 
-      #{curBalAfterTrans,jdbcType=DECIMAL}, #{curBalBeforeTrans,jdbcType=DECIMAL}, #{acctTransDtlSq,jdbcType=BIGINT}, 
-      #{banalceStatus,jdbcType=INTEGER}, #{offsetNum,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=BIGINT}, #{sinoChemOrderId,jdbcType=VARCHAR}, #{sinoChemTradeId,jdbcType=VARCHAR}, 
+      #{mastAcctNum,jdbcType=VARCHAR}, #{acctNum,jdbcType=VARCHAR}, #{custId,jdbcType=BIGINT}, 
+      #{gatewayChannel,jdbcType=VARCHAR}, #{gatewayChannelCode,jdbcType=VARCHAR}, #{drCr,jdbcType=VARCHAR}, 
+      #{transTime,jdbcType=VARCHAR}, #{tranType,jdbcType=VARCHAR}, #{curType,jdbcType=VARCHAR}, 
+      #{tranAmt,jdbcType=DECIMAL}, #{curBalAfterTrans,jdbcType=DECIMAL}, #{curBalBeforeTrans,jdbcType=DECIMAL}, 
+      #{acctTransDtlSq,jdbcType=BIGINT}, #{banalceStatus,jdbcType=INTEGER}, #{offsetNum,jdbcType=INTEGER}, 
+      #{realtimeStatus,jdbcType=INTEGER}, #{realtimeOffsetNum,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.sinochem.domain.AcpsBalanceCheckTask">
@@ -135,11 +146,23 @@
       <if test="sinoChemOrderId != null">
         sino_chem_order_id,
       </if>
+      <if test="sinoChemTradeId != null">
+        sino_chem_trade_id,
+      </if>
+      <if test="mastAcctNum != null">
+        mast_acct_num,
+      </if>
       <if test="acctNum != null">
         acct_num,
       </if>
       <if test="custId != null">
         cust_id,
+      </if>
+      <if test="gatewayChannel != null">
+        gateway_channel,
+      </if>
+      <if test="gatewayChannelCode != null">
+        gateway_channel_code,
       </if>
       <if test="drCr != null">
         dr_cr,
@@ -171,6 +194,12 @@
       <if test="offsetNum != null">
         offset_num,
       </if>
+      <if test="realtimeStatus != null">
+        realtime_status,
+      </if>
+      <if test="realtimeOffsetNum != null">
+        realtime_offset_num,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -185,11 +214,23 @@
       <if test="sinoChemOrderId != null">
         #{sinoChemOrderId,jdbcType=VARCHAR},
       </if>
+      <if test="sinoChemTradeId != null">
+        #{sinoChemTradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="mastAcctNum != null">
+        #{mastAcctNum,jdbcType=VARCHAR},
+      </if>
       <if test="acctNum != null">
         #{acctNum,jdbcType=VARCHAR},
       </if>
       <if test="custId != null">
         #{custId,jdbcType=BIGINT},
+      </if>
+      <if test="gatewayChannel != null">
+        #{gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayChannelCode != null">
+        #{gatewayChannelCode,jdbcType=VARCHAR},
       </if>
       <if test="drCr != null">
         #{drCr,jdbcType=VARCHAR},
@@ -221,6 +262,12 @@
       <if test="offsetNum != null">
         #{offsetNum,jdbcType=INTEGER},
       </if>
+      <if test="realtimeStatus != null">
+        #{realtimeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="realtimeOffsetNum != null">
+        #{realtimeOffsetNum,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -244,11 +291,23 @@
       <if test="record.sinoChemOrderId != null">
         sino_chem_order_id = #{record.sinoChemOrderId,jdbcType=VARCHAR},
       </if>
+      <if test="record.sinoChemTradeId != null">
+        sino_chem_trade_id = #{record.sinoChemTradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mastAcctNum != null">
+        mast_acct_num = #{record.mastAcctNum,jdbcType=VARCHAR},
+      </if>
       <if test="record.acctNum != null">
         acct_num = #{record.acctNum,jdbcType=VARCHAR},
       </if>
       <if test="record.custId != null">
         cust_id = #{record.custId,jdbcType=BIGINT},
+      </if>
+      <if test="record.gatewayChannel != null">
+        gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gatewayChannelCode != null">
+        gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
       </if>
       <if test="record.drCr != null">
         dr_cr = #{record.drCr,jdbcType=VARCHAR},
@@ -280,6 +339,12 @@
       <if test="record.offsetNum != null">
         offset_num = #{record.offsetNum,jdbcType=INTEGER},
       </if>
+      <if test="record.realtimeStatus != null">
+        realtime_status = #{record.realtimeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.realtimeOffsetNum != null">
+        realtime_offset_num = #{record.realtimeOffsetNum,jdbcType=INTEGER},
+      </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -295,8 +360,12 @@
     update acps_balance_check_task
     set id = #{record.id,jdbcType=BIGINT},
       sino_chem_order_id = #{record.sinoChemOrderId,jdbcType=VARCHAR},
+      sino_chem_trade_id = #{record.sinoChemTradeId,jdbcType=VARCHAR},
+      mast_acct_num = #{record.mastAcctNum,jdbcType=VARCHAR},
       acct_num = #{record.acctNum,jdbcType=VARCHAR},
       cust_id = #{record.custId,jdbcType=BIGINT},
+      gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+      gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
       dr_cr = #{record.drCr,jdbcType=VARCHAR},
       trans_time = #{record.transTime,jdbcType=VARCHAR},
       tran_type = #{record.tranType,jdbcType=VARCHAR},
@@ -307,6 +376,8 @@
       acct_trans_dtl_sq = #{record.acctTransDtlSq,jdbcType=BIGINT},
       banalce_status = #{record.banalceStatus,jdbcType=INTEGER},
       offset_num = #{record.offsetNum,jdbcType=INTEGER},
+      realtime_status = #{record.realtimeStatus,jdbcType=INTEGER},
+      realtime_offset_num = #{record.realtimeOffsetNum,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -319,11 +390,23 @@
       <if test="sinoChemOrderId != null">
         sino_chem_order_id = #{sinoChemOrderId,jdbcType=VARCHAR},
       </if>
+      <if test="sinoChemTradeId != null">
+        sino_chem_trade_id = #{sinoChemTradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="mastAcctNum != null">
+        mast_acct_num = #{mastAcctNum,jdbcType=VARCHAR},
+      </if>
       <if test="acctNum != null">
         acct_num = #{acctNum,jdbcType=VARCHAR},
       </if>
       <if test="custId != null">
         cust_id = #{custId,jdbcType=BIGINT},
+      </if>
+      <if test="gatewayChannel != null">
+        gateway_channel = #{gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayChannelCode != null">
+        gateway_channel_code = #{gatewayChannelCode,jdbcType=VARCHAR},
       </if>
       <if test="drCr != null">
         dr_cr = #{drCr,jdbcType=VARCHAR},
@@ -355,6 +438,12 @@
       <if test="offsetNum != null">
         offset_num = #{offsetNum,jdbcType=INTEGER},
       </if>
+      <if test="realtimeStatus != null">
+        realtime_status = #{realtimeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="realtimeOffsetNum != null">
+        realtime_offset_num = #{realtimeOffsetNum,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -367,8 +456,12 @@
   <update id="updateByPrimaryKey" parameterType="com.sinochem.domain.AcpsBalanceCheckTask">
     update acps_balance_check_task
     set sino_chem_order_id = #{sinoChemOrderId,jdbcType=VARCHAR},
+      sino_chem_trade_id = #{sinoChemTradeId,jdbcType=VARCHAR},
+      mast_acct_num = #{mastAcctNum,jdbcType=VARCHAR},
       acct_num = #{acctNum,jdbcType=VARCHAR},
       cust_id = #{custId,jdbcType=BIGINT},
+      gateway_channel = #{gatewayChannel,jdbcType=VARCHAR},
+      gateway_channel_code = #{gatewayChannelCode,jdbcType=VARCHAR},
       dr_cr = #{drCr,jdbcType=VARCHAR},
       trans_time = #{transTime,jdbcType=VARCHAR},
       tran_type = #{tranType,jdbcType=VARCHAR},
@@ -379,6 +472,8 @@
       acct_trans_dtl_sq = #{acctTransDtlSq,jdbcType=BIGINT},
       banalce_status = #{banalceStatus,jdbcType=INTEGER},
       offset_num = #{offsetNum,jdbcType=INTEGER},
+      realtime_status = #{realtimeStatus,jdbcType=INTEGER},
+      realtime_offset_num = #{realtimeOffsetNum,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

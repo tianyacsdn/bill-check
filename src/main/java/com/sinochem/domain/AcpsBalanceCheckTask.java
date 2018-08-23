@@ -8,9 +8,17 @@ public class AcpsBalanceCheckTask {
 
     private String sinoChemOrderId;
 
+    private String sinoChemTradeId;
+
+    private String mastAcctNum;
+
     private String acctNum;
 
     private Long custId;
+
+    private String gatewayChannel;
+
+    private String gatewayChannelCode;
 
     private String drCr;
 
@@ -32,6 +40,10 @@ public class AcpsBalanceCheckTask {
 
     private Integer offsetNum;
 
+    private Integer realtimeStatus;
+
+    private Integer realtimeOffsetNum;
+
     private Date createTime;
 
     private Date updateTime;
@@ -52,6 +64,22 @@ public class AcpsBalanceCheckTask {
         this.sinoChemOrderId = sinoChemOrderId == null ? null : sinoChemOrderId.trim();
     }
 
+    public String getSinoChemTradeId() {
+        return sinoChemTradeId;
+    }
+
+    public void setSinoChemTradeId(String sinoChemTradeId) {
+        this.sinoChemTradeId = sinoChemTradeId == null ? null : sinoChemTradeId.trim();
+    }
+
+    public String getMastAcctNum() {
+        return mastAcctNum;
+    }
+
+    public void setMastAcctNum(String mastAcctNum) {
+        this.mastAcctNum = mastAcctNum == null ? null : mastAcctNum.trim();
+    }
+
     public String getAcctNum() {
         return acctNum;
     }
@@ -66,6 +94,22 @@ public class AcpsBalanceCheckTask {
 
     public void setCustId(Long custId) {
         this.custId = custId;
+    }
+
+    public String getGatewayChannel() {
+        return gatewayChannel;
+    }
+
+    public void setGatewayChannel(String gatewayChannel) {
+        this.gatewayChannel = gatewayChannel == null ? null : gatewayChannel.trim();
+    }
+
+    public String getGatewayChannelCode() {
+        return gatewayChannelCode;
+    }
+
+    public void setGatewayChannelCode(String gatewayChannelCode) {
+        this.gatewayChannelCode = gatewayChannelCode == null ? null : gatewayChannelCode.trim();
     }
 
     public String getDrCr() {
@@ -146,6 +190,22 @@ public class AcpsBalanceCheckTask {
 
     public void setOffsetNum(Integer offsetNum) {
         this.offsetNum = offsetNum;
+    }
+
+    public Integer getRealtimeStatus() {
+        return realtimeStatus;
+    }
+
+    public void setRealtimeStatus(Integer realtimeStatus) {
+        this.realtimeStatus = realtimeStatus;
+    }
+
+    public Integer getRealtimeOffsetNum() {
+        return realtimeOffsetNum;
+    }
+
+    public void setRealtimeOffsetNum(Integer realtimeOffsetNum) {
+        this.realtimeOffsetNum = realtimeOffsetNum;
     }
 
     public Date getCreateTime() {

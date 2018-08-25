@@ -30,7 +30,7 @@ public class ParseBillServiceImpl implements ParseBillService {
     public List<BillBankBalance> parseBill() throws Exception {
         BalanceBillFactory factory = new PingAnBalanceBillFactory();
         TxtBalanceBill txtBalanceBill = factory.build();
-        List<BillBankBalance> list = txtBalanceBill.parse(localPath);
+        List<BillBankBalance> list = txtBalanceBill.parse(localPath + File.separator + balancePath);
         return list;
     }
 

@@ -20,20 +20,20 @@ public class PingAnTxtBalanceBill implements TxtBalanceBill {
             String fileName = file.getName();
             if (fileName.contains("YE")) {
                 String billDate = fileName.substring(2,10);
-                String thirdNum = fileName.substring(10, 14);
+                String gatewayChannel = fileName.substring(10, 14);
                 byte[] datas = FileUtil.readAsByteArray(file);
                 String[] fileDatas = new String(datas).split("\n");
                 for (int i = 0; i < fileDatas.length; i++) {
                     BillBankBalance billBankBalance = new BillBankBalance();
                     billBankBalance.setBillDate(new SimpleDateFormat("yyyyMMdd").parse(billDate));
-                    billBankBalance.setGatewayChannel("平安银行");
-                    billBankBalance.setGatewayChannelCode(thirdNum);
+                    billBankBalance.setGatewayChannel("PAB");
+                    billBankBalance.setGatewayChannelCode(gatewayChannel);
                     String rowData = fileDatas[i];
                     String[] colData = rowData.split("&");
                     billBankBalance.setTransSq(colData[0]);
                     billBankBalance.setThirdCustid(colData[1]);
                     billBankBalance.setAcctId(colData[2]);
-                    billBankBalance.setTranAmount(new BigDecimal(colData[3]));
+                    billBankBalance.setTranAmount(new BigDecimal(colData[3].replace("\r", "")));
                     list.add(billBankBalance);
                 }
             }

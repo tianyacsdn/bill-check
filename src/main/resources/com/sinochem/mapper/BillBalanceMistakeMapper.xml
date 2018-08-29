@@ -463,4 +463,26 @@
       opt_id = #{optId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <insert id="insertBatch" keyProperty="id" parameterType="java.util.List" useGeneratedKeys="true">
+    insert into bill_balance_mistake (acct_num, cust_id,
+    acct_name, acct_type, gateway_channel,
+    gateway_channel_code, bank_total_balance, acps_total_balance,
+    bank_available_balance, acps_available_balance,
+    bank_available_draw_balance, acps_available_draw_balance,
+    bank_frozen_balance, acps_frozen_balance, check_time,
+    check_status, create_time, update_time,
+    remark, opt_id)
+    values
+    <foreach collection="list" index="index" item="item" separator=",">
+      (#{item.acctNum,jdbcType=VARCHAR}, #{item.custId,jdbcType=BIGINT},
+      #{item.acctName,jdbcType=VARCHAR}, #{item.acctType,jdbcType=INTEGER}, #{item.gatewayChannel,jdbcType=VARCHAR},
+      #{item.gatewayChannelCode,jdbcType=VARCHAR}, #{item.bankTotalBalance,jdbcType=DECIMAL}, #{item.acpsTotalBalance,jdbcType=DECIMAL},
+      #{item.bankAvailableBalance,jdbcType=DECIMAL}, #{item.acpsAvailableBalance,jdbcType=DECIMAL},
+      #{item.bankAvailableDrawBalance,jdbcType=DECIMAL}, #{item.acpsAvailableDrawBalance,jdbcType=DECIMAL},
+      #{item.bankFrozenBalance,jdbcType=DECIMAL}, #{item.acpsFrozenBalance,jdbcType=DECIMAL}, #{item.checkTime,jdbcType=TIMESTAMP},
+      #{item.checkStatus,jdbcType=INTEGER}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
+      #{item.remark,jdbcType=VARCHAR}, #{item.optId,jdbcType=BIGINT}
+      )
+    </foreach>
+  </insert>
 </mapper>

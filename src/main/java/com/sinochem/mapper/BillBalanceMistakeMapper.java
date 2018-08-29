@@ -32,4 +32,6 @@ public interface BillBalanceMistakeMapper {
     int updateByPrimaryKeySelective(BillBalanceMistake record);
 
     int updateByPrimaryKey(BillBalanceMistake record);
+
+    int insertBatch(List<BillBalanceMistake> mistakes);
 }

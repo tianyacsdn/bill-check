@@ -1,10 +1,10 @@
-package com.sinochem.service;
+package com.sinochem.cps;
 
 import com.sinochem.domain.BillBalanceMistake;
 
 import java.util.List;
 
-public interface BillBalanceMistakeService {
+public interface BillBalanceMistakeCpsService {
     /**
      * 添加错误记录
      * @param record
@@ -23,5 +23,5 @@ public interface BillBalanceMistakeService {
      * @param mistakes
      * @return
      */
-    int insertBatch(List<BillBalanceMistake> mistakes);
+    boolean insertBatch(List<BillBalanceMistake> mistakes);
 }

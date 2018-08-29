@@ -1,5 +1,6 @@
-package com.sinochem.cps;
+package com.sinochem.cps.impl;
 
+import com.sinochem.cps.BillInternalBalanceMistakeCpsService;
 import com.sinochem.domain.BillInternalBalanceMistake;
 import com.sinochem.service.BillInternalBalanceMistakeService;
 import org.springframework.beans.factory.annotation.Autowired;

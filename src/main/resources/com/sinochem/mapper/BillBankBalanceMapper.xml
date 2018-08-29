@@ -75,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, gateway_channel, gateway_channel_code, trade_type, bill_date, trans_sq, third_custId, 
+    id, gateway_channel, gateway_channel_code, trade_type, bill_date, trans_sq, third_custId,
     acct_id, tran_amount, opt_id, remark, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.sinochem.domain.BillBankBalanceExample" resultMap="BaseResultMap">
@@ -93,7 +93,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from bill_bank_balance
     where id = #{id,jdbcType=BIGINT}
@@ -109,15 +109,15 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sinochem.domain.BillBankBalance">
-    insert into bill_bank_balance (id, gateway_channel, gateway_channel_code, 
-      trade_type, bill_date, trans_sq, 
-      third_custId, acct_id, tran_amount, 
-      opt_id, remark, create_time, 
+    insert into bill_bank_balance (id, gateway_channel, gateway_channel_code,
+      trade_type, bill_date, trans_sq,
+      third_custId, acct_id, tran_amount,
+      opt_id, remark, create_time,
       update_time)
-    values (#{id,jdbcType=BIGINT}, #{gatewayChannel,jdbcType=VARCHAR}, #{gatewayChannelCode,jdbcType=VARCHAR}, 
-      #{tradeType,jdbcType=VARCHAR}, #{billDate,jdbcType=TIMESTAMP}, #{transSq,jdbcType=VARCHAR}, 
-      #{thirdCustid,jdbcType=VARCHAR}, #{acctId,jdbcType=VARCHAR}, #{tranAmount,jdbcType=DECIMAL}, 
-      #{optId,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=BIGINT}, #{gatewayChannel,jdbcType=VARCHAR}, #{gatewayChannelCode,jdbcType=VARCHAR},
+      #{tradeType,jdbcType=VARCHAR}, #{billDate,jdbcType=TIMESTAMP}, #{transSq,jdbcType=VARCHAR},
+      #{thirdCustid,jdbcType=VARCHAR}, #{acctId,jdbcType=VARCHAR}, #{tranAmount,jdbcType=DECIMAL},
+      #{optId,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.sinochem.domain.BillBankBalance">
@@ -261,18 +261,18 @@
   <update id="updateByExample" parameterType="map">
     update bill_bank_balance
     set id = #{record.id,jdbcType=BIGINT},
-      gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
-      gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
-      trade_type = #{record.tradeType,jdbcType=VARCHAR},
-      bill_date = #{record.billDate,jdbcType=TIMESTAMP},
-      trans_sq = #{record.transSq,jdbcType=VARCHAR},
-      third_custId = #{record.thirdCustid,jdbcType=VARCHAR},
-      acct_id = #{record.acctId,jdbcType=VARCHAR},
-      tran_amount = #{record.tranAmount,jdbcType=DECIMAL},
-      opt_id = #{record.optId,jdbcType=BIGINT},
-      remark = #{record.remark,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+    gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
+    trade_type = #{record.tradeType,jdbcType=VARCHAR},
+    bill_date = #{record.billDate,jdbcType=TIMESTAMP},
+    trans_sq = #{record.transSq,jdbcType=VARCHAR},
+    third_custId = #{record.thirdCustid,jdbcType=VARCHAR},
+    acct_id = #{record.acctId,jdbcType=VARCHAR},
+    tran_amount = #{record.tranAmount,jdbcType=DECIMAL},
+    opt_id = #{record.optId,jdbcType=BIGINT},
+    remark = #{record.remark,jdbcType=VARCHAR},
+    create_time = #{record.createTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -335,4 +335,20 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <insert id="insertBatch" keyProperty="id" parameterType="java.util.List" useGeneratedKeys="true">
+    insert into bill_bank_balance ( gateway_channel, gateway_channel_code,
+      trade_type, bill_date, trans_sq,
+      third_custId, acct_id, tran_amount,
+      opt_id, remark, create_time,
+      update_time)
+    values
+    <foreach collection="list" index="index" item="item" separator=",">
+    ( #{item.gatewayChannel,jdbcType=VARCHAR}, #{item.gatewayChannelCode,jdbcType=VARCHAR},
+      #{item.tradeType,jdbcType=VARCHAR}, #{item.billDate,jdbcType=TIMESTAMP}, #{item.transSq,jdbcType=VARCHAR},
+      #{item.thirdCustid,jdbcType=VARCHAR}, #{item.acctId,jdbcType=VARCHAR}, #{item.tranAmount,jdbcType=DECIMAL},
+      #{item.optId,jdbcType=BIGINT}, #{item.remark,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP},
+      #{item.updateTime,jdbcType=TIMESTAMP}
+    )
+    </foreach>
+  </insert>
 </mapper>

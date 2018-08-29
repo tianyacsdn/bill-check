@@ -3,8 +3,8 @@ package com.sinochem.service.impl;
 import com.sinochem.domain.BillBankBalance;
 import com.sinochem.mapper.BillBankBalanceMapper;
 import com.sinochem.parse.BalanceBillFactory;
-import com.sinochem.parse.PingAnBalanceBillFactory;
 import com.sinochem.parse.TxtBalanceBill;
+import com.sinochem.parse.impl.PABBalanceBillFactory;
 import com.sinochem.service.ParseBillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +28,7 @@ public class ParseBillServiceImpl implements ParseBillService {
 
     @Override
     public List<BillBankBalance> parseBill() throws Exception {
-        BalanceBillFactory factory = new PingAnBalanceBillFactory();
+        BalanceBillFactory factory = new PABBalanceBillFactory();
         TxtBalanceBill txtBalanceBill = factory.build();
         List<BillBankBalance> list = txtBalanceBill.parse(localPath + File.separator + balancePath);
         return list;
@@ -36,7 +36,7 @@ public class ParseBillServiceImpl implements ParseBillService {
 
     @Override
     public List parseBillByDate(String billDate) throws Exception {
-        BalanceBillFactory factory = new PingAnBalanceBillFactory();
+        BalanceBillFactory factory = new PABBalanceBillFactory();
         TxtBalanceBill txtBalanceBill = factory.build();
         List<BillBankBalance> list = txtBalanceBill.parse(localPath + File.separator + balancePath, billDate);
         return list;

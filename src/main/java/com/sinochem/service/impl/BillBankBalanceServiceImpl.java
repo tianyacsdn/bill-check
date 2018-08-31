@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class BillBankBalanceServiceImpl implements BillBankBalanceService {
 
-    @Value("${ftp.hostname}")
+    @Value("${ftp.PAB.hostname}")
     private String hostname;
     @Autowired
     BillBankBalanceMapper billBankBalanceMapper;

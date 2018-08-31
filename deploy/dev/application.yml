@@ -1,2 +1,11 @@
 restUrl:
   balanceQuery: "http://127.0.0.1:8080/balance/query"
+ftp:
+  PAB:
+    hostname: 10.144.137.47
+    port: 21
+    username: payhadmin
+    password: DgWai2=FoCB7
+    ftpBasePath: /home/wasadmin
+    localBasePath: ftp-file/PAB
+    YEPath: YE

@@ -18,9 +18,9 @@ import java.util.List;
 @Service
 public class ParseBillServiceImpl implements ParseBillService {
 
-    @Value("${ftp.localPath}")
-    private String localPath;
-    @Value("${ftp.YEPath}")
+    @Value("${ftp.PAB.localBasePath}")
+    private String localBasePath;
+    @Value("${ftp.PAB.YEPath}")
     private String balancePath;
 
     @Autowired
@@ -30,7 +30,7 @@ public class ParseBillServiceImpl implements ParseBillService {
     public List<BillBankBalance> parseBill() throws Exception {
         BalanceBillFactory factory = new PABBalanceBillFactory();
         TxtBalanceBill txtBalanceBill = factory.build();
-        List<BillBankBalance> list = txtBalanceBill.parse(localPath + File.separator + balancePath);
+        List<BillBankBalance> list = txtBalanceBill.parse(localBasePath + File.separator + balancePath);
         return list;
     }
 
@@ -38,7 +38,7 @@ public class ParseBillServiceImpl implements ParseBillService {
     public List parseBillByDate(String billDate) throws Exception {
         BalanceBillFactory factory = new PABBalanceBillFactory();
         TxtBalanceBill txtBalanceBill = factory.build();
-        List<BillBankBalance> list = txtBalanceBill.parse(localPath + File.separator + balancePath, billDate);
+        List<BillBankBalance> list = txtBalanceBill.parse(localBasePath + File.separator + balancePath, billDate);
         return list;
     }
 

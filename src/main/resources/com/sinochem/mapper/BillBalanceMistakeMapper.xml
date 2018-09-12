@@ -19,6 +19,8 @@
     <result column="acps_frozen_balance" jdbcType="DECIMAL" property="acpsFrozenBalance" />
     <result column="check_time" jdbcType="TIMESTAMP" property="checkTime" />
     <result column="check_status" jdbcType="INTEGER" property="checkStatus" />
+    <result column="alarm_state" jdbcType="INTEGER" property="alarmState" />
+    <result column="error_type" jdbcType="VARCHAR" property="errorType" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
@@ -86,7 +88,8 @@
     id, acct_num, cust_id, acct_name, acct_type, gateway_channel, gateway_channel_code, 
     bank_total_balance, acps_total_balance, bank_available_balance, acps_available_balance, 
     bank_available_draw_balance, acps_available_draw_balance, bank_frozen_balance, acps_frozen_balance, 
-    check_time, check_status, create_time, update_time, remark, opt_id
+    check_time, check_status, alarm_state, error_type, create_time, update_time, remark, 
+    opt_id
   </sql>
   <select id="selectByExample" parameterType="com.sinochem.domain.BillBalanceMistakeExample" resultMap="BaseResultMap">
     select
@@ -125,16 +128,18 @@
       bank_available_balance, acps_available_balance, 
       bank_available_draw_balance, acps_available_draw_balance, 
       bank_frozen_balance, acps_frozen_balance, check_time, 
-      check_status, create_time, update_time, 
-      remark, opt_id)
+      check_status, alarm_state, error_type, 
+      create_time, update_time, remark, 
+      opt_id)
     values (#{id,jdbcType=BIGINT}, #{acctNum,jdbcType=VARCHAR}, #{custId,jdbcType=BIGINT}, 
       #{acctName,jdbcType=VARCHAR}, #{acctType,jdbcType=INTEGER}, #{gatewayChannel,jdbcType=VARCHAR}, 
       #{gatewayChannelCode,jdbcType=VARCHAR}, #{bankTotalBalance,jdbcType=DECIMAL}, #{acpsTotalBalance,jdbcType=DECIMAL}, 
       #{bankAvailableBalance,jdbcType=DECIMAL}, #{acpsAvailableBalance,jdbcType=DECIMAL}, 
       #{bankAvailableDrawBalance,jdbcType=DECIMAL}, #{acpsAvailableDrawBalance,jdbcType=DECIMAL}, 
       #{bankFrozenBalance,jdbcType=DECIMAL}, #{acpsFrozenBalance,jdbcType=DECIMAL}, #{checkTime,jdbcType=TIMESTAMP}, 
-      #{checkStatus,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{remark,jdbcType=VARCHAR}, #{optId,jdbcType=BIGINT})
+      #{checkStatus,jdbcType=INTEGER}, #{alarmState,jdbcType=INTEGER}, #{errorType,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{optId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.sinochem.domain.BillBalanceMistake">
     insert into bill_balance_mistake
@@ -189,6 +194,12 @@
       </if>
       <if test="checkStatus != null">
         check_status,
+      </if>
+      <if test="alarmState != null">
+        alarm_state,
+      </if>
+      <if test="errorType != null">
+        error_type,
       </if>
       <if test="createTime != null">
         create_time,
@@ -254,6 +265,12 @@
       </if>
       <if test="checkStatus != null">
         #{checkStatus,jdbcType=INTEGER},
+      </if>
+      <if test="alarmState != null">
+        #{alarmState,jdbcType=INTEGER},
+      </if>
+      <if test="errorType != null">
+        #{errorType,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -329,6 +346,12 @@
       <if test="record.checkStatus != null">
         check_status = #{record.checkStatus,jdbcType=INTEGER},
       </if>
+      <if test="record.alarmState != null">
+        alarm_state = #{record.alarmState,jdbcType=INTEGER},
+      </if>
+      <if test="record.errorType != null">
+        error_type = #{record.errorType,jdbcType=VARCHAR},
+      </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -365,6 +388,8 @@
       acps_frozen_balance = #{record.acpsFrozenBalance,jdbcType=DECIMAL},
       check_time = #{record.checkTime,jdbcType=TIMESTAMP},
       check_status = #{record.checkStatus,jdbcType=INTEGER},
+      alarm_state = #{record.alarmState,jdbcType=INTEGER},
+      error_type = #{record.errorType,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       remark = #{record.remark,jdbcType=VARCHAR},
@@ -424,6 +449,12 @@
       <if test="checkStatus != null">
         check_status = #{checkStatus,jdbcType=INTEGER},
       </if>
+      <if test="alarmState != null">
+        alarm_state = #{alarmState,jdbcType=INTEGER},
+      </if>
+      <if test="errorType != null">
+        error_type = #{errorType,jdbcType=VARCHAR},
+      </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -457,6 +488,8 @@
       acps_frozen_balance = #{acpsFrozenBalance,jdbcType=DECIMAL},
       check_time = #{checkTime,jdbcType=TIMESTAMP},
       check_status = #{checkStatus,jdbcType=INTEGER},
+      alarm_state = #{alarmState,jdbcType=INTEGER},
+      error_type = #{errorType,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       remark = #{remark,jdbcType=VARCHAR},
@@ -470,8 +503,9 @@
     bank_available_balance, acps_available_balance,
     bank_available_draw_balance, acps_available_draw_balance,
     bank_frozen_balance, acps_frozen_balance, check_time,
-    check_status, create_time, update_time,
-    remark, opt_id)
+    check_status, alarm_state, error_type,
+    create_time, update_time, remark,
+    opt_id)
     values
     <foreach collection="list" index="index" item="item" separator=",">
       (#{item.acctNum,jdbcType=VARCHAR}, #{item.custId,jdbcType=BIGINT},
@@ -480,8 +514,9 @@
       #{item.bankAvailableBalance,jdbcType=DECIMAL}, #{item.acpsAvailableBalance,jdbcType=DECIMAL},
       #{item.bankAvailableDrawBalance,jdbcType=DECIMAL}, #{item.acpsAvailableDrawBalance,jdbcType=DECIMAL},
       #{item.bankFrozenBalance,jdbcType=DECIMAL}, #{item.acpsFrozenBalance,jdbcType=DECIMAL}, #{item.checkTime,jdbcType=TIMESTAMP},
-      #{item.checkStatus,jdbcType=INTEGER}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
-      #{item.remark,jdbcType=VARCHAR}, #{item.optId,jdbcType=BIGINT}
+      #{checkStatus,jdbcType=INTEGER}, #{alarmState,jdbcType=INTEGER}, #{errorType,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR},
+      #{optId,jdbcType=BIGINT})
       )
     </foreach>
   </insert>

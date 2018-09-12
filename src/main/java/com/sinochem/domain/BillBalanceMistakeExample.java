@@ -1166,6 +1166,136 @@ public class BillBalanceMistakeExample {
             return (Criteria) this;
         }
 
+        public Criteria andAlarmStateIsNull() {
+            addCriterion("alarm_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateIsNotNull() {
+            addCriterion("alarm_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateEqualTo(Integer value) {
+            addCriterion("alarm_state =", value, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateNotEqualTo(Integer value) {
+            addCriterion("alarm_state <>", value, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateGreaterThan(Integer value) {
+            addCriterion("alarm_state >", value, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("alarm_state >=", value, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateLessThan(Integer value) {
+            addCriterion("alarm_state <", value, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateLessThanOrEqualTo(Integer value) {
+            addCriterion("alarm_state <=", value, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateIn(List<Integer> values) {
+            addCriterion("alarm_state in", values, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateNotIn(List<Integer> values) {
+            addCriterion("alarm_state not in", values, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateBetween(Integer value1, Integer value2) {
+            addCriterion("alarm_state between", value1, value2, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("alarm_state not between", value1, value2, "alarmState");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeIsNull() {
+            addCriterion("error_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeIsNotNull() {
+            addCriterion("error_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeEqualTo(String value) {
+            addCriterion("error_type =", value, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeNotEqualTo(String value) {
+            addCriterion("error_type <>", value, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeGreaterThan(String value) {
+            addCriterion("error_type >", value, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("error_type >=", value, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeLessThan(String value) {
+            addCriterion("error_type <", value, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeLessThanOrEqualTo(String value) {
+            addCriterion("error_type <=", value, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeLike(String value) {
+            addCriterion("error_type like", value, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeNotLike(String value) {
+            addCriterion("error_type not like", value, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeIn(List<String> values) {
+            addCriterion("error_type in", values, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeNotIn(List<String> values) {
+            addCriterion("error_type not in", values, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeBetween(String value1, String value2) {
+            addCriterion("error_type between", value1, value2, "errorType");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeNotBetween(String value1, String value2) {
+            addCriterion("error_type not between", value1, value2, "errorType");
+            return (Criteria) this;
+        }
+
         public Criteria andCreateTimeIsNull() {
             addCriterion("create_time is null");
             return (Criteria) this;

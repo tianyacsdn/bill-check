@@ -38,6 +38,10 @@ public class BillBalanceMistake {
 
     private Integer checkStatus;
 
+    private Integer alarmState;
+
+    private String errorType;
+
     private Date createTime;
 
     private Date updateTime;
@@ -180,6 +184,22 @@ public class BillBalanceMistake {
 
     public void setCheckStatus(Integer checkStatus) {
         this.checkStatus = checkStatus;
+    }
+
+    public Integer getAlarmState() {
+        return alarmState;
+    }
+
+    public void setAlarmState(Integer alarmState) {
+        this.alarmState = alarmState;
+    }
+
+    public String getErrorType() {
+        return errorType;
+    }
+
+    public void setErrorType(String errorType) {
+        this.errorType = errorType == null ? null : errorType.trim();
     }
 
     public Date getCreateTime() {

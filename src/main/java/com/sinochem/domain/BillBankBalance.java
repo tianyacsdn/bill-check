@@ -1,5 +1,7 @@
 package com.sinochem.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -12,6 +14,7 @@ public class BillBankBalance {
 
     private String tradeType;
 
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
     private Date billDate;
 
     private String transSq;

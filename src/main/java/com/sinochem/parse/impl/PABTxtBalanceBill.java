@@ -50,6 +50,7 @@ public class PABTxtBalanceBill implements TxtBalanceBill {
                         BillBankBalance billBankBalance = new BillBankBalance();
                         billBankBalance.setBillDate(new SimpleDateFormat("yyyyMMdd").parse(billDate));
                         billBankBalance.setGatewayChannel("PAB");
+                        billBankBalance.setTradeType("YE");
                         billBankBalance.setGatewayChannelCode(thirdNum);
                         String rowData = fileDatas[i];
                         String[] colData = rowData.split("&");

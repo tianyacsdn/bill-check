@@ -38,7 +38,7 @@ public class ParseBillServiceImpl implements ParseBillService {
     public List parseBillByDate(String billDate) throws Exception {
         BalanceBillFactory factory = new PABBalanceBillFactory();
         TxtBalanceBill txtBalanceBill = factory.build();
-        List<BillBankBalance> list = txtBalanceBill.parse(localBasePath + File.separator + balancePath, billDate);
+        List<BillBankBalance> list = txtBalanceBill.parse(localBasePath + "/" + billDate, billDate);
         return list;
     }
 

@@ -215,7 +215,8 @@ public class FtpUtil {
             } catch (IOException e) {
                 LOGGER.error("FTP下载文件异常：" + e.getMessage(), e);
             }
-            downloadFiles.add(fileName);
+//            downloadFiles.add(fileName);
+            downloadFiles.add(localFile.getPath());
         }
         return downloadFiles;
     }

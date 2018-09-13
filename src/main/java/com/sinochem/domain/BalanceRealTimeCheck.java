@@ -55,8 +55,10 @@ public class BalanceRealTimeCheck {
 
     private String errorType;
 
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
 
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date updateTime;
 
     private String remark;

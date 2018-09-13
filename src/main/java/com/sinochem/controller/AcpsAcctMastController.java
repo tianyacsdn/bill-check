@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/acps")
-public class AcpsAcctMastServiceController {
+public class AcpsAcctMastController {
     @Autowired
     AcpsAcctMastService acpsAcctMastService;
 

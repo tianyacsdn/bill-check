@@ -106,7 +106,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from bill_balance_mistake
     where id = #{id,jdbcType=BIGINT}
@@ -372,28 +372,28 @@
   <update id="updateByExample" parameterType="map">
     update bill_balance_mistake
     set id = #{record.id,jdbcType=BIGINT},
-      acct_num = #{record.acctNum,jdbcType=VARCHAR},
-      cust_id = #{record.custId,jdbcType=BIGINT},
-      acct_name = #{record.acctName,jdbcType=VARCHAR},
-      acct_type = #{record.acctType,jdbcType=INTEGER},
-      gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
-      gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
-      bank_total_balance = #{record.bankTotalBalance,jdbcType=DECIMAL},
-      acps_total_balance = #{record.acpsTotalBalance,jdbcType=DECIMAL},
-      bank_available_balance = #{record.bankAvailableBalance,jdbcType=DECIMAL},
-      acps_available_balance = #{record.acpsAvailableBalance,jdbcType=DECIMAL},
-      bank_available_draw_balance = #{record.bankAvailableDrawBalance,jdbcType=DECIMAL},
-      acps_available_draw_balance = #{record.acpsAvailableDrawBalance,jdbcType=DECIMAL},
-      bank_frozen_balance = #{record.bankFrozenBalance,jdbcType=DECIMAL},
-      acps_frozen_balance = #{record.acpsFrozenBalance,jdbcType=DECIMAL},
-      check_time = #{record.checkTime,jdbcType=TIMESTAMP},
-      check_status = #{record.checkStatus,jdbcType=INTEGER},
-      alarm_state = #{record.alarmState,jdbcType=INTEGER},
-      error_type = #{record.errorType,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      remark = #{record.remark,jdbcType=VARCHAR},
-      opt_id = #{record.optId,jdbcType=BIGINT}
+    acct_num = #{record.acctNum,jdbcType=VARCHAR},
+    cust_id = #{record.custId,jdbcType=BIGINT},
+    acct_name = #{record.acctName,jdbcType=VARCHAR},
+    acct_type = #{record.acctType,jdbcType=INTEGER},
+    gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+    gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
+    bank_total_balance = #{record.bankTotalBalance,jdbcType=DECIMAL},
+    acps_total_balance = #{record.acpsTotalBalance,jdbcType=DECIMAL},
+    bank_available_balance = #{record.bankAvailableBalance,jdbcType=DECIMAL},
+    acps_available_balance = #{record.acpsAvailableBalance,jdbcType=DECIMAL},
+    bank_available_draw_balance = #{record.bankAvailableDrawBalance,jdbcType=DECIMAL},
+    acps_available_draw_balance = #{record.acpsAvailableDrawBalance,jdbcType=DECIMAL},
+    bank_frozen_balance = #{record.bankFrozenBalance,jdbcType=DECIMAL},
+    acps_frozen_balance = #{record.acpsFrozenBalance,jdbcType=DECIMAL},
+    check_time = #{record.checkTime,jdbcType=TIMESTAMP},
+    check_status = #{record.checkStatus,jdbcType=INTEGER},
+    alarm_state = #{record.alarmState,jdbcType=INTEGER},
+    error_type = #{record.errorType,jdbcType=VARCHAR},
+    create_time = #{record.createTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    remark = #{record.remark,jdbcType=VARCHAR},
+    opt_id = #{record.optId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

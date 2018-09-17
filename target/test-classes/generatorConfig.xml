@@ -11,7 +11,7 @@
         </commentGenerator>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.144.137.22:3306/gold_goods_acps" userId="acps_gg"
+                        connectionURL="jdbc:mysql://10.144.137.22:3306/gold_goods_check" userId="dev_gg"
                         password="Sino@1234">
         </jdbcConnection>
         <javaTypeResolver>
@@ -22,7 +22,7 @@
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="mapper"
+        <sqlMapGenerator targetPackage="com.sinochem.mapper"
                          targetProject="src\main\resources">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
@@ -38,7 +38,37 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
+        <!--
         <table tableName="bill_bank_balance" schema="" domainObjectName="BillBankBalance">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <!--
+        <table tableName="acps_balance_check_task" schema="" domainObjectName="AcpsBalanceCheckTask">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <!--
+        <table tableName="bill_balance_mistake" schema="" domainObjectName="BillBalanceMistake">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <!--
+        <table tableName="acps_acct_mast" schema="" domainObjectName="AcpsAcctMast">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <!--
+        <table tableName="bill_internal_balance_mistake" schema="" domainObjectName="BillInternalBalanceMistake">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <!--
+        <table tableName="balance_real_time_check" schema="" domainObjectName="BalanceRealTimeCheck">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <table tableName="balance_bill_check" schema="" domainObjectName="BalanceBillCheck">
             <property name="useActualColumnNames" value="false"/>
         </table>
     </context>

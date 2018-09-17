@@ -63,7 +63,12 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
+        <!--
         <table tableName="balance_real_time_check" schema="" domainObjectName="BalanceRealTimeCheck">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <table tableName="balance_bill_check" schema="" domainObjectName="BalanceBillCheck">
             <property name="useActualColumnNames" value="false"/>
         </table>
     </context>

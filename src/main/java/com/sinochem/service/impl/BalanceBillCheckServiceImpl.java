@@ -45,7 +45,7 @@ public class BalanceBillCheckServiceImpl implements BalanceBillCheckService {
 
     private List<BalanceBillCheck> listDataByDate(String gatewayChannel, String date) {
         BalanceBillCheckExample example = new BalanceBillCheckExample();
-        example.setOrderByClause("ORDER BY acps_total_balance desc");
+        example.setOrderByClause("acps_total_balance desc");
         BalanceBillCheckExample.Criteria criteria = example.createCriteria();
         criteria.andGatewayChannelEqualTo(gatewayChannel);
         try {

@@ -8,6 +8,7 @@ import java.util.Date;
 public class BalanceBillCheck {
     private Long id;
 
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
     private Date billDate;
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
@@ -63,9 +64,13 @@ public class BalanceBillCheck {
 
     private String errorType;
 
-    private Long optId;
+    private String errorTypeDetail;
 
     private String remark;
+
+    private String modifyRemark;
+
+    private Long optId;
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
@@ -297,12 +302,12 @@ public class BalanceBillCheck {
         this.errorType = errorType == null ? null : errorType.trim();
     }
 
-    public Long getOptId() {
-        return optId;
+    public String getErrorTypeDetail() {
+        return errorTypeDetail;
     }
 
-    public void setOptId(Long optId) {
-        this.optId = optId;
+    public void setErrorTypeDetail(String errorTypeDetail) {
+        this.errorTypeDetail = errorTypeDetail == null ? null : errorTypeDetail.trim();
     }
 
     public String getRemark() {
@@ -311,6 +316,22 @@ public class BalanceBillCheck {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    public String getModifyRemark() {
+        return modifyRemark;
+    }
+
+    public void setModifyRemark(String modifyRemark) {
+        this.modifyRemark = modifyRemark == null ? null : modifyRemark.trim();
+    }
+
+    public Long getOptId() {
+        return optId;
+    }
+
+    public void setOptId(Long optId) {
+        this.optId = optId;
     }
 
     public Date getCreateTime() {

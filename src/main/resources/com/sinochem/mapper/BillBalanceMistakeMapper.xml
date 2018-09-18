@@ -514,9 +514,9 @@
       #{item.bankAvailableBalance,jdbcType=DECIMAL}, #{item.acpsAvailableBalance,jdbcType=DECIMAL},
       #{item.bankAvailableDrawBalance,jdbcType=DECIMAL}, #{item.acpsAvailableDrawBalance,jdbcType=DECIMAL},
       #{item.bankFrozenBalance,jdbcType=DECIMAL}, #{item.acpsFrozenBalance,jdbcType=DECIMAL}, #{item.checkTime,jdbcType=TIMESTAMP},
-      #{checkStatus,jdbcType=INTEGER}, #{alarmState,jdbcType=INTEGER}, #{errorType,jdbcType=VARCHAR},
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR},
-      #{optId,jdbcType=BIGINT})
+      #{item.checkStatus,jdbcType=INTEGER}, #{item.alarmState,jdbcType=INTEGER}, #{item.errorType,jdbcType=VARCHAR},
+      #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP}, #{item.remark,jdbcType=VARCHAR},
+      #{item.optId,jdbcType=BIGINT})
       )
     </foreach>
   </insert>

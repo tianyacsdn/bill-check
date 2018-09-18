@@ -1903,63 +1903,73 @@ public class BalanceBillCheckExample {
             return (Criteria) this;
         }
 
-        public Criteria andOptIdIsNull() {
-            addCriterion("opt_id is null");
+        public Criteria andErrorTypeDetailIsNull() {
+            addCriterion("error_type_detail is null");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdIsNotNull() {
-            addCriterion("opt_id is not null");
+        public Criteria andErrorTypeDetailIsNotNull() {
+            addCriterion("error_type_detail is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdEqualTo(Long value) {
-            addCriterion("opt_id =", value, "optId");
+        public Criteria andErrorTypeDetailEqualTo(String value) {
+            addCriterion("error_type_detail =", value, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdNotEqualTo(Long value) {
-            addCriterion("opt_id <>", value, "optId");
+        public Criteria andErrorTypeDetailNotEqualTo(String value) {
+            addCriterion("error_type_detail <>", value, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdGreaterThan(Long value) {
-            addCriterion("opt_id >", value, "optId");
+        public Criteria andErrorTypeDetailGreaterThan(String value) {
+            addCriterion("error_type_detail >", value, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("opt_id >=", value, "optId");
+        public Criteria andErrorTypeDetailGreaterThanOrEqualTo(String value) {
+            addCriterion("error_type_detail >=", value, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdLessThan(Long value) {
-            addCriterion("opt_id <", value, "optId");
+        public Criteria andErrorTypeDetailLessThan(String value) {
+            addCriterion("error_type_detail <", value, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdLessThanOrEqualTo(Long value) {
-            addCriterion("opt_id <=", value, "optId");
+        public Criteria andErrorTypeDetailLessThanOrEqualTo(String value) {
+            addCriterion("error_type_detail <=", value, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdIn(List<Long> values) {
-            addCriterion("opt_id in", values, "optId");
+        public Criteria andErrorTypeDetailLike(String value) {
+            addCriterion("error_type_detail like", value, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdNotIn(List<Long> values) {
-            addCriterion("opt_id not in", values, "optId");
+        public Criteria andErrorTypeDetailNotLike(String value) {
+            addCriterion("error_type_detail not like", value, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdBetween(Long value1, Long value2) {
-            addCriterion("opt_id between", value1, value2, "optId");
+        public Criteria andErrorTypeDetailIn(List<String> values) {
+            addCriterion("error_type_detail in", values, "errorTypeDetail");
             return (Criteria) this;
         }
 
-        public Criteria andOptIdNotBetween(Long value1, Long value2) {
-            addCriterion("opt_id not between", value1, value2, "optId");
+        public Criteria andErrorTypeDetailNotIn(List<String> values) {
+            addCriterion("error_type_detail not in", values, "errorTypeDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeDetailBetween(String value1, String value2) {
+            addCriterion("error_type_detail between", value1, value2, "errorTypeDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorTypeDetailNotBetween(String value1, String value2) {
+            addCriterion("error_type_detail not between", value1, value2, "errorTypeDetail");
             return (Criteria) this;
         }
 
@@ -2030,6 +2040,136 @@ public class BalanceBillCheckExample {
 
         public Criteria andRemarkNotBetween(String value1, String value2) {
             addCriterion("remark not between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkIsNull() {
+            addCriterion("modify_remark is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkIsNotNull() {
+            addCriterion("modify_remark is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkEqualTo(String value) {
+            addCriterion("modify_remark =", value, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkNotEqualTo(String value) {
+            addCriterion("modify_remark <>", value, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkGreaterThan(String value) {
+            addCriterion("modify_remark >", value, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("modify_remark >=", value, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkLessThan(String value) {
+            addCriterion("modify_remark <", value, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkLessThanOrEqualTo(String value) {
+            addCriterion("modify_remark <=", value, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkLike(String value) {
+            addCriterion("modify_remark like", value, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkNotLike(String value) {
+            addCriterion("modify_remark not like", value, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkIn(List<String> values) {
+            addCriterion("modify_remark in", values, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkNotIn(List<String> values) {
+            addCriterion("modify_remark not in", values, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkBetween(String value1, String value2) {
+            addCriterion("modify_remark between", value1, value2, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andModifyRemarkNotBetween(String value1, String value2) {
+            addCriterion("modify_remark not between", value1, value2, "modifyRemark");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdIsNull() {
+            addCriterion("opt_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdIsNotNull() {
+            addCriterion("opt_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdEqualTo(Long value) {
+            addCriterion("opt_id =", value, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdNotEqualTo(Long value) {
+            addCriterion("opt_id <>", value, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdGreaterThan(Long value) {
+            addCriterion("opt_id >", value, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("opt_id >=", value, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdLessThan(Long value) {
+            addCriterion("opt_id <", value, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdLessThanOrEqualTo(Long value) {
+            addCriterion("opt_id <=", value, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdIn(List<Long> values) {
+            addCriterion("opt_id in", values, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdNotIn(List<Long> values) {
+            addCriterion("opt_id not in", values, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdBetween(Long value1, Long value2) {
+            addCriterion("opt_id between", value1, value2, "optId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOptIdNotBetween(Long value1, Long value2) {
+            addCriterion("opt_id not between", value1, value2, "optId");
             return (Criteria) this;
         }
 

@@ -26,10 +26,12 @@
     <result column="check_status" jdbcType="INTEGER" property="checkStatus" />
     <result column="alarm_state" jdbcType="INTEGER" property="alarmState" />
     <result column="error_type" jdbcType="VARCHAR" property="errorType" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="error_type_detail" jdbcType="VARCHAR" property="errorTypeDetail" />
+    <result column="modify_remark" jdbcType="VARCHAR" property="modifyRemark" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="opt_id" jdbcType="BIGINT" property="optId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -95,7 +97,7 @@
     acps_available_balance, bank_available_draw_balance, acps_available_draw_balance, 
     bank_frozen_balance, acps_frozen_balance, bank_pre_minus_amt, acps_pre_minus_amt, 
     bank_pending_payment_balance, acps_pending_payment_balance, check_status, alarm_state, 
-    error_type, create_time, update_time, remark, opt_id
+    error_type, error_type_detail, modify_remark, remark, opt_id, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.sinochem.domain.BalanceRealTimeCheckExample" resultMap="BaseResultMap">
     select
@@ -137,8 +139,9 @@
       acps_frozen_balance, bank_pre_minus_amt, acps_pre_minus_amt, 
       bank_pending_payment_balance, acps_pending_payment_balance, 
       check_status, alarm_state, error_type, 
-      create_time, update_time, remark, 
-      opt_id)
+      error_type_detail, modify_remark, remark, 
+      opt_id, create_time, update_time
+      )
     values (#{id,jdbcType=BIGINT}, #{checkDate,jdbcType=DATE}, #{mastAcctNum,jdbcType=VARCHAR}, 
       #{acctNum,jdbcType=VARCHAR}, #{custId,jdbcType=BIGINT}, #{acctName,jdbcType=VARCHAR}, 
       #{acctType,jdbcType=INTEGER}, #{gatewayChannel,jdbcType=VARCHAR}, #{gatewayChannelCode,jdbcType=VARCHAR}, 
@@ -148,8 +151,9 @@
       #{acpsFrozenBalance,jdbcType=DECIMAL}, #{bankPreMinusAmt,jdbcType=DECIMAL}, #{acpsPreMinusAmt,jdbcType=DECIMAL}, 
       #{bankPendingPaymentBalance,jdbcType=DECIMAL}, #{acpsPendingPaymentBalance,jdbcType=DECIMAL}, 
       #{checkStatus,jdbcType=INTEGER}, #{alarmState,jdbcType=INTEGER}, #{errorType,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
-      #{optId,jdbcType=BIGINT})
+      #{errorTypeDetail,jdbcType=VARCHAR}, #{modifyRemark,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{optId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.sinochem.domain.BalanceRealTimeCheck">
     insert into balance_real_time_check
@@ -226,17 +230,23 @@
       <if test="errorType != null">
         error_type,
       </if>
-      <if test="createTime != null">
-        create_time,
+      <if test="errorTypeDetail != null">
+        error_type_detail,
       </if>
-      <if test="updateTime != null">
-        update_time,
+      <if test="modifyRemark != null">
+        modify_remark,
       </if>
       <if test="remark != null">
         remark,
       </if>
       <if test="optId != null">
         opt_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -312,17 +322,23 @@
       <if test="errorType != null">
         #{errorType,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+      <if test="errorTypeDetail != null">
+        #{errorTypeDetail,jdbcType=VARCHAR},
       </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+      <if test="modifyRemark != null">
+        #{modifyRemark,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
       <if test="optId != null">
         #{optId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -407,17 +423,23 @@
       <if test="record.errorType != null">
         error_type = #{record.errorType,jdbcType=VARCHAR},
       </if>
-      <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      <if test="record.errorTypeDetail != null">
+        error_type_detail = #{record.errorTypeDetail,jdbcType=VARCHAR},
       </if>
-      <if test="record.updateTime != null">
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      <if test="record.modifyRemark != null">
+        modify_remark = #{record.modifyRemark,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
       </if>
       <if test="record.optId != null">
         opt_id = #{record.optId,jdbcType=BIGINT},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -450,10 +472,12 @@
       check_status = #{record.checkStatus,jdbcType=INTEGER},
       alarm_state = #{record.alarmState,jdbcType=INTEGER},
       error_type = #{record.errorType,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      error_type_detail = #{record.errorTypeDetail,jdbcType=VARCHAR},
+      modify_remark = #{record.modifyRemark,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
-      opt_id = #{record.optId,jdbcType=BIGINT}
+      opt_id = #{record.optId,jdbcType=BIGINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -530,17 +554,23 @@
       <if test="errorType != null">
         error_type = #{errorType,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+      <if test="errorTypeDetail != null">
+        error_type_detail = #{errorTypeDetail,jdbcType=VARCHAR},
       </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      <if test="modifyRemark != null">
+        modify_remark = #{modifyRemark,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
       </if>
       <if test="optId != null">
         opt_id = #{optId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -570,37 +600,41 @@
       check_status = #{checkStatus,jdbcType=INTEGER},
       alarm_state = #{alarmState,jdbcType=INTEGER},
       error_type = #{errorType,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      error_type_detail = #{errorTypeDetail,jdbcType=VARCHAR},
+      modify_remark = #{modifyRemark,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
-      opt_id = #{optId,jdbcType=BIGINT}
+      opt_id = #{optId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <insert id="insertBatch" keyProperty="id" parameterType="java.util.List" useGeneratedKeys="true">
     insert into balance_real_time_check (id, check_date, mast_acct_num,
-      acct_num, cust_id, acct_name,
-      acct_type, gateway_channel, gateway_channel_code,
-      bank_total_balance, acps_total_balance, bank_available_balance,
-      acps_available_balance, bank_available_draw_balance,
-      acps_available_draw_balance, bank_frozen_balance,
-      acps_frozen_balance, bank_pre_minus_amt, acps_pre_minus_amt,
-      bank_pending_payment_balance, acps_pending_payment_balance,
-      check_status, alarm_state, error_type,
-      create_time, update_time, remark,
-      opt_id)
+    acct_num, cust_id, acct_name,
+    acct_type, gateway_channel, gateway_channel_code,
+    bank_total_balance, acps_total_balance, bank_available_balance,
+    acps_available_balance, bank_available_draw_balance,
+    acps_available_draw_balance, bank_frozen_balance,
+    acps_frozen_balance, bank_pre_minus_amt, acps_pre_minus_amt,
+    bank_pending_payment_balance, acps_pending_payment_balance,
+    check_status, alarm_state, error_type,
+    error_type_detail, modify_remark, remark,
+    opt_id, create_time, update_time
+    )
     values
     <foreach collection="list" index="index" item="item" separator=",">
-      (#{id,jdbcType=BIGINT}, #{checkDate,jdbcType=TIMESTAMP}, #{mastAcctNum,jdbcType=VARCHAR},
-      #{acctNum,jdbcType=VARCHAR}, #{custId,jdbcType=BIGINT}, #{acctName,jdbcType=VARCHAR},
-      #{acctType,jdbcType=INTEGER}, #{gatewayChannel,jdbcType=VARCHAR}, #{gatewayChannelCode,jdbcType=VARCHAR},
-      #{bankTotalBalance,jdbcType=DECIMAL}, #{acpsTotalBalance,jdbcType=DECIMAL}, #{bankAvailableBalance,jdbcType=DECIMAL},
-      #{acpsAvailableBalance,jdbcType=DECIMAL}, #{bankAvailableDrawBalance,jdbcType=DECIMAL},
-      #{acpsAvailableDrawBalance,jdbcType=DECIMAL}, #{bankFrozenBalance,jdbcType=DECIMAL},
-      #{acpsFrozenBalance,jdbcType=DECIMAL}, #{bankPreMinusAmt,jdbcType=DECIMAL}, #{acpsPreMinusAmt,jdbcType=DECIMAL},
-      #{bankPendingPaymentBalance,jdbcType=DECIMAL}, #{acpsPendingPaymentBalance,jdbcType=DECIMAL},
-      #{checkStatus,jdbcType=INTEGER}, #{alarmState,jdbcType=INTEGER}, #{errorType,jdbcType=VARCHAR},
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR},
-      #{optId,jdbcType=BIGINT})
+      (#{item.id,jdbcType=BIGINT}, #{item.checkDate,jdbcType=DATE}, #{item.mastAcctNum,jdbcType=VARCHAR},
+      #{item.acctNum,jdbcType=VARCHAR}, #{item.custId,jdbcType=BIGINT}, #{item.acctName,jdbcType=VARCHAR},
+      #{item.acctType,jdbcType=INTEGER}, #{item.gatewayChannel,jdbcType=VARCHAR}, #{item.gatewayChannelCode,jdbcType=VARCHAR},
+      #{item.bankTotalBalance,jdbcType=DECIMAL}, #{item.acpsTotalBalance,jdbcType=DECIMAL}, #{item.bankAvailableBalance,jdbcType=DECIMAL},
+      #{item.acpsAvailableBalance,jdbcType=DECIMAL}, #{item.bankAvailableDrawBalance,jdbcType=DECIMAL},
+      #{item.acpsAvailableDrawBalance,jdbcType=DECIMAL}, #{item.bankFrozenBalance,jdbcType=DECIMAL},
+      #{item.acpsFrozenBalance,jdbcType=DECIMAL}, #{item.bankPreMinusAmt,jdbcType=DECIMAL}, #{item.acpsPreMinusAmt,jdbcType=DECIMAL},
+      #{item.bankPendingPaymentBalance,jdbcType=DECIMAL}, #{item.acpsPendingPaymentBalance,jdbcType=DECIMAL},
+      #{item.checkStatus,jdbcType=INTEGER}, #{item.alarmState,jdbcType=INTEGER}, #{item.errorType,jdbcType=VARCHAR},
+      #{item.errorTypeDetail,jdbcType=VARCHAR}, #{item.modifyRemark,jdbcType=VARCHAR}, #{item.remark,jdbcType=VARCHAR},
+      #{item.optId,jdbcType=BIGINT}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP}
+      )
     </foreach>
   </insert>
 </mapper>

@@ -31,8 +31,8 @@ public class BalanceRealTimeCheckController {
         return result;
     }
 
-    @RequestMapping(value = "/add/batch")
-    public Map<String, Object> insertBalanceRealTimeCheck(@RequestBody List<BalanceRealTimeCheck> records) {
+    @RequestMapping(value = "/addbatch")
+    public Map<String, Object> insertBatch(@RequestBody List<BalanceRealTimeCheck> records) {
         Map<String, Object> result = new HashMap<>();
         int num = balanceRealTimeCheckCpsService.insertBatch(records);
         result.put("msg", num);

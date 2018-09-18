@@ -55,15 +55,19 @@ public class BalanceRealTimeCheck {
 
     private String errorType;
 
+    private String errorTypeDetail;
+
+    private String modifyRemark;
+
+    private String remark;
+
+    private Long optId;
+
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date updateTime;
-
-    private String remark;
-
-    private Long optId;
 
     public Long getId() {
         return id;
@@ -257,20 +261,20 @@ public class BalanceRealTimeCheck {
         this.errorType = errorType == null ? null : errorType.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getErrorTypeDetail() {
+        return errorTypeDetail;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setErrorTypeDetail(String errorTypeDetail) {
+        this.errorTypeDetail = errorTypeDetail == null ? null : errorTypeDetail.trim();
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public String getModifyRemark() {
+        return modifyRemark;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setModifyRemark(String modifyRemark) {
+        this.modifyRemark = modifyRemark == null ? null : modifyRemark.trim();
     }
 
     public String getRemark() {
@@ -287,5 +291,21 @@ public class BalanceRealTimeCheck {
 
     public void setOptId(Long optId) {
         this.optId = optId;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

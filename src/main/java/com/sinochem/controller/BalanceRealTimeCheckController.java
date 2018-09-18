@@ -2,6 +2,9 @@ package com.sinochem.controller;
 
 import com.sinochem.cps.BalanceRealTimeCheckCpsService;
 import com.sinochem.domain.BalanceRealTimeCheck;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +19,8 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping(value = "/balance/realtime")
+@Api(value = "余额对账API", description = "余额对账向账务系统提供的API")
+@Slf4j
 public class BalanceRealTimeCheckController {
     private final BalanceRealTimeCheckCpsService balanceRealTimeCheckCpsService;
 
@@ -24,6 +29,7 @@ public class BalanceRealTimeCheckController {
     }
 
     @RequestMapping(value = "/add")
+    @ApiOperation(value = "")
     public Map<String, Object> insertBalanceRealTimeCheck(@RequestBody BalanceRealTimeCheck record) {
         Map<String, Object> result = new HashMap<>();
         int num = balanceRealTimeCheckCpsService.insert(record);
@@ -40,6 +46,7 @@ public class BalanceRealTimeCheckController {
     }
 
     @RequestMapping(value = "/query")
+    @ApiOperation(value = "")
     public Map<String, Object> listBalanceRealTimeCheck(@RequestParam String gatewayChannel,
                                                         @RequestParam String startDate,
                                                         @RequestParam String endDate) {

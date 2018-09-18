@@ -31,7 +31,12 @@ public class RestServiceImpl implements RestService {
         MediaType type = MediaType.parseMediaType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         headers.setContentType(type);
         headers.add("Accept", MediaType.APPLICATION_JSON.toString());
-        String reqParam = JsonUtil.jsonStr(param);
+        String reqParam = "";
+        try {
+            reqParam = JsonUtil.jsonStr(param);
+        } catch (Exception e) {
+
+        }
         HttpEntity<String> formEntity = new HttpEntity<String>(reqParam, headers);
         Object obj = restTemplate.postForObject(balanceQueryUrl,formEntity,Object.class);
 

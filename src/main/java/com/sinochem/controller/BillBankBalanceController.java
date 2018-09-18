@@ -1,5 +1,6 @@
 package com.sinochem.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.sinochem.cps.BillBankBalanceCpsService;
 import com.sinochem.domain.BillBankBalance;
 import com.sinochem.service.BillBankBalanceService;
@@ -30,10 +31,20 @@ public class BillBankBalanceController {
     }
 
     @RequestMapping(value = "/queryByBillDate")
-    public Map listBalanceByBillDat(@RequestParam(required = false)String billDate) throws Exception{
+    public Map listBalanceByBillDate(@RequestParam(required = false)String billDate) throws Exception{
         Map<String, Object> result = new HashMap<>();
         List<BillBankBalance> list = billBankBalanceCpsService.listBillBankBalance(billDate);
         result.put("data", list);
+        return result;
+    }
+
+    @RequestMapping(value = "/queryByBillDatePage")
+    public Map listBalanceByBillDatePage(@RequestParam(required = false)String billDate,
+                                          @RequestParam(required = false, defaultValue = "10") Integer pageSize,
+                                          @RequestParam(required = false, defaultValue = "1") Integer pageNum) throws Exception{
+        Map<String, Object> result = new HashMap<>();
+        PageInfo pageInfo = billBankBalanceCpsService.listBillBankBalance(billDate, pageSize, pageNum);
+        result.put("data", pageInfo);
         return result;
     }
 }

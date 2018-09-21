@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinochem.mapper.BalanceInnerCheckMapper">
+  <resultMap id="BaseResultMap" type="com.sinochem.domain.BalanceInnerCheck">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="check_date" jdbcType="DATE" property="checkDate" />
+    <result column="mast_acct_num" jdbcType="VARCHAR" property="mastAcctNum" />
+    <result column="acct_num" jdbcType="VARCHAR" property="acctNum" />
+    <result column="cust_id" jdbcType="BIGINT" property="custId" />
+    <result column="acct_name" jdbcType="VARCHAR" property="acctName" />
+    <result column="acct_type" jdbcType="INTEGER" property="acctType" />
+    <result column="gateway_channel" jdbcType="VARCHAR" property="gatewayChannel" />
+    <result column="gateway_channel_code" jdbcType="VARCHAR" property="gatewayChannelCode" />
+    <result column="inner_total_balance" jdbcType="DECIMAL" property="innerTotalBalance" />
+    <result column="acps_total_balance" jdbcType="DECIMAL" property="acpsTotalBalance" />
+    <result column="inner_available_balance" jdbcType="DECIMAL" property="innerAvailableBalance" />
+    <result column="acps_available_balance" jdbcType="DECIMAL" property="acpsAvailableBalance" />
+    <result column="inner_available_draw_balance" jdbcType="DECIMAL" property="innerAvailableDrawBalance" />
+    <result column="acps_available_draw_balance" jdbcType="DECIMAL" property="acpsAvailableDrawBalance" />
+    <result column="inner_frozen_balance" jdbcType="DECIMAL" property="innerFrozenBalance" />
+    <result column="acps_frozen_balance" jdbcType="DECIMAL" property="acpsFrozenBalance" />
+    <result column="inner_pre_minus_amt" jdbcType="DECIMAL" property="innerPreMinusAmt" />
+    <result column="acps_pre_minus_amt" jdbcType="DECIMAL" property="acpsPreMinusAmt" />
+    <result column="inner_pending_payment_balance" jdbcType="DECIMAL" property="innerPendingPaymentBalance" />
+    <result column="acps_pending_payment_balance" jdbcType="DECIMAL" property="acpsPendingPaymentBalance" />
+    <result column="check_status" jdbcType="INTEGER" property="checkStatus" />
+    <result column="alarm_state" jdbcType="INTEGER" property="alarmState" />
+    <result column="error_type" jdbcType="VARCHAR" property="errorType" />
+    <result column="error_type_detail" jdbcType="VARCHAR" property="errorTypeDetail" />
+    <result column="modify_remark" jdbcType="VARCHAR" property="modifyRemark" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="opt_id" jdbcType="BIGINT" property="optId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, check_date, mast_acct_num, acct_num, cust_id, acct_name, acct_type, gateway_channel, 
+    gateway_channel_code, inner_total_balance, acps_total_balance, inner_available_balance, 
+    acps_available_balance, inner_available_draw_balance, acps_available_draw_balance, 
+    inner_frozen_balance, acps_frozen_balance, inner_pre_minus_amt, acps_pre_minus_amt, 
+    inner_pending_payment_balance, acps_pending_payment_balance, check_status, alarm_state, 
+    error_type, error_type_detail, modify_remark, remark, opt_id, create_time, update_time
+  </sql>
+  <select id="selectByExample" parameterType="com.sinochem.domain.BalanceInnerCheckExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from balance_inner_check
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from balance_inner_check
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from balance_inner_check
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sinochem.domain.BalanceInnerCheckExample">
+    delete from balance_inner_check
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sinochem.domain.BalanceInnerCheck">
+    insert into balance_inner_check (id, check_date, mast_acct_num, 
+      acct_num, cust_id, acct_name, 
+      acct_type, gateway_channel, gateway_channel_code, 
+      inner_total_balance, acps_total_balance, inner_available_balance, 
+      acps_available_balance, inner_available_draw_balance, 
+      acps_available_draw_balance, inner_frozen_balance, 
+      acps_frozen_balance, inner_pre_minus_amt, acps_pre_minus_amt, 
+      inner_pending_payment_balance, acps_pending_payment_balance, 
+      check_status, alarm_state, error_type, 
+      error_type_detail, modify_remark, remark, 
+      opt_id, create_time, update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{checkDate,jdbcType=DATE}, #{mastAcctNum,jdbcType=VARCHAR}, 
+      #{acctNum,jdbcType=VARCHAR}, #{custId,jdbcType=BIGINT}, #{acctName,jdbcType=VARCHAR}, 
+      #{acctType,jdbcType=INTEGER}, #{gatewayChannel,jdbcType=VARCHAR}, #{gatewayChannelCode,jdbcType=VARCHAR}, 
+      #{innerTotalBalance,jdbcType=DECIMAL}, #{acpsTotalBalance,jdbcType=DECIMAL}, #{innerAvailableBalance,jdbcType=DECIMAL}, 
+      #{acpsAvailableBalance,jdbcType=DECIMAL}, #{innerAvailableDrawBalance,jdbcType=DECIMAL}, 
+      #{acpsAvailableDrawBalance,jdbcType=DECIMAL}, #{innerFrozenBalance,jdbcType=DECIMAL}, 
+      #{acpsFrozenBalance,jdbcType=DECIMAL}, #{innerPreMinusAmt,jdbcType=DECIMAL}, #{acpsPreMinusAmt,jdbcType=DECIMAL}, 
+      #{innerPendingPaymentBalance,jdbcType=DECIMAL}, #{acpsPendingPaymentBalance,jdbcType=DECIMAL}, 
+      #{checkStatus,jdbcType=INTEGER}, #{alarmState,jdbcType=INTEGER}, #{errorType,jdbcType=VARCHAR}, 
+      #{errorTypeDetail,jdbcType=VARCHAR}, #{modifyRemark,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{optId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinochem.domain.BalanceInnerCheck">
+    insert into balance_inner_check
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="checkDate != null">
+        check_date,
+      </if>
+      <if test="mastAcctNum != null">
+        mast_acct_num,
+      </if>
+      <if test="acctNum != null">
+        acct_num,
+      </if>
+      <if test="custId != null">
+        cust_id,
+      </if>
+      <if test="acctName != null">
+        acct_name,
+      </if>
+      <if test="acctType != null">
+        acct_type,
+      </if>
+      <if test="gatewayChannel != null">
+        gateway_channel,
+      </if>
+      <if test="gatewayChannelCode != null">
+        gateway_channel_code,
+      </if>
+      <if test="innerTotalBalance != null">
+        inner_total_balance,
+      </if>
+      <if test="acpsTotalBalance != null">
+        acps_total_balance,
+      </if>
+      <if test="innerAvailableBalance != null">
+        inner_available_balance,
+      </if>
+      <if test="acpsAvailableBalance != null">
+        acps_available_balance,
+      </if>
+      <if test="innerAvailableDrawBalance != null">
+        inner_available_draw_balance,
+      </if>
+      <if test="acpsAvailableDrawBalance != null">
+        acps_available_draw_balance,
+      </if>
+      <if test="innerFrozenBalance != null">
+        inner_frozen_balance,
+      </if>
+      <if test="acpsFrozenBalance != null">
+        acps_frozen_balance,
+      </if>
+      <if test="innerPreMinusAmt != null">
+        inner_pre_minus_amt,
+      </if>
+      <if test="acpsPreMinusAmt != null">
+        acps_pre_minus_amt,
+      </if>
+      <if test="innerPendingPaymentBalance != null">
+        inner_pending_payment_balance,
+      </if>
+      <if test="acpsPendingPaymentBalance != null">
+        acps_pending_payment_balance,
+      </if>
+      <if test="checkStatus != null">
+        check_status,
+      </if>
+      <if test="alarmState != null">
+        alarm_state,
+      </if>
+      <if test="errorType != null">
+        error_type,
+      </if>
+      <if test="errorTypeDetail != null">
+        error_type_detail,
+      </if>
+      <if test="modifyRemark != null">
+        modify_remark,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="optId != null">
+        opt_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="checkDate != null">
+        #{checkDate,jdbcType=DATE},
+      </if>
+      <if test="mastAcctNum != null">
+        #{mastAcctNum,jdbcType=VARCHAR},
+      </if>
+      <if test="acctNum != null">
+        #{acctNum,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=BIGINT},
+      </if>
+      <if test="acctName != null">
+        #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null">
+        #{acctType,jdbcType=INTEGER},
+      </if>
+      <if test="gatewayChannel != null">
+        #{gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayChannelCode != null">
+        #{gatewayChannelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="innerTotalBalance != null">
+        #{innerTotalBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsTotalBalance != null">
+        #{acpsTotalBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="innerAvailableBalance != null">
+        #{innerAvailableBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsAvailableBalance != null">
+        #{acpsAvailableBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="innerAvailableDrawBalance != null">
+        #{innerAvailableDrawBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsAvailableDrawBalance != null">
+        #{acpsAvailableDrawBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="innerFrozenBalance != null">
+        #{innerFrozenBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsFrozenBalance != null">
+        #{acpsFrozenBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="innerPreMinusAmt != null">
+        #{innerPreMinusAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsPreMinusAmt != null">
+        #{acpsPreMinusAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="innerPendingPaymentBalance != null">
+        #{innerPendingPaymentBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsPendingPaymentBalance != null">
+        #{acpsPendingPaymentBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="checkStatus != null">
+        #{checkStatus,jdbcType=INTEGER},
+      </if>
+      <if test="alarmState != null">
+        #{alarmState,jdbcType=INTEGER},
+      </if>
+      <if test="errorType != null">
+        #{errorType,jdbcType=VARCHAR},
+      </if>
+      <if test="errorTypeDetail != null">
+        #{errorTypeDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyRemark != null">
+        #{modifyRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="optId != null">
+        #{optId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sinochem.domain.BalanceInnerCheckExample" resultType="java.lang.Integer">
+    select count(*) from balance_inner_check
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update balance_inner_check
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.checkDate != null">
+        check_date = #{record.checkDate,jdbcType=DATE},
+      </if>
+      <if test="record.mastAcctNum != null">
+        mast_acct_num = #{record.mastAcctNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acctNum != null">
+        acct_num = #{record.acctNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custId != null">
+        cust_id = #{record.custId,jdbcType=BIGINT},
+      </if>
+      <if test="record.acctName != null">
+        acct_name = #{record.acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acctType != null">
+        acct_type = #{record.acctType,jdbcType=INTEGER},
+      </if>
+      <if test="record.gatewayChannel != null">
+        gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gatewayChannelCode != null">
+        gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.innerTotalBalance != null">
+        inner_total_balance = #{record.innerTotalBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.acpsTotalBalance != null">
+        acps_total_balance = #{record.acpsTotalBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.innerAvailableBalance != null">
+        inner_available_balance = #{record.innerAvailableBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.acpsAvailableBalance != null">
+        acps_available_balance = #{record.acpsAvailableBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.innerAvailableDrawBalance != null">
+        inner_available_draw_balance = #{record.innerAvailableDrawBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.acpsAvailableDrawBalance != null">
+        acps_available_draw_balance = #{record.acpsAvailableDrawBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.innerFrozenBalance != null">
+        inner_frozen_balance = #{record.innerFrozenBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.acpsFrozenBalance != null">
+        acps_frozen_balance = #{record.acpsFrozenBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.innerPreMinusAmt != null">
+        inner_pre_minus_amt = #{record.innerPreMinusAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.acpsPreMinusAmt != null">
+        acps_pre_minus_amt = #{record.acpsPreMinusAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.innerPendingPaymentBalance != null">
+        inner_pending_payment_balance = #{record.innerPendingPaymentBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.acpsPendingPaymentBalance != null">
+        acps_pending_payment_balance = #{record.acpsPendingPaymentBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.checkStatus != null">
+        check_status = #{record.checkStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.alarmState != null">
+        alarm_state = #{record.alarmState,jdbcType=INTEGER},
+      </if>
+      <if test="record.errorType != null">
+        error_type = #{record.errorType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.errorTypeDetail != null">
+        error_type_detail = #{record.errorTypeDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyRemark != null">
+        modify_remark = #{record.modifyRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.optId != null">
+        opt_id = #{record.optId,jdbcType=BIGINT},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update balance_inner_check
+    set id = #{record.id,jdbcType=BIGINT},
+      check_date = #{record.checkDate,jdbcType=DATE},
+      mast_acct_num = #{record.mastAcctNum,jdbcType=VARCHAR},
+      acct_num = #{record.acctNum,jdbcType=VARCHAR},
+      cust_id = #{record.custId,jdbcType=BIGINT},
+      acct_name = #{record.acctName,jdbcType=VARCHAR},
+      acct_type = #{record.acctType,jdbcType=INTEGER},
+      gateway_channel = #{record.gatewayChannel,jdbcType=VARCHAR},
+      gateway_channel_code = #{record.gatewayChannelCode,jdbcType=VARCHAR},
+      inner_total_balance = #{record.innerTotalBalance,jdbcType=DECIMAL},
+      acps_total_balance = #{record.acpsTotalBalance,jdbcType=DECIMAL},
+      inner_available_balance = #{record.innerAvailableBalance,jdbcType=DECIMAL},
+      acps_available_balance = #{record.acpsAvailableBalance,jdbcType=DECIMAL},
+      inner_available_draw_balance = #{record.innerAvailableDrawBalance,jdbcType=DECIMAL},
+      acps_available_draw_balance = #{record.acpsAvailableDrawBalance,jdbcType=DECIMAL},
+      inner_frozen_balance = #{record.innerFrozenBalance,jdbcType=DECIMAL},
+      acps_frozen_balance = #{record.acpsFrozenBalance,jdbcType=DECIMAL},
+      inner_pre_minus_amt = #{record.innerPreMinusAmt,jdbcType=DECIMAL},
+      acps_pre_minus_amt = #{record.acpsPreMinusAmt,jdbcType=DECIMAL},
+      inner_pending_payment_balance = #{record.innerPendingPaymentBalance,jdbcType=DECIMAL},
+      acps_pending_payment_balance = #{record.acpsPendingPaymentBalance,jdbcType=DECIMAL},
+      check_status = #{record.checkStatus,jdbcType=INTEGER},
+      alarm_state = #{record.alarmState,jdbcType=INTEGER},
+      error_type = #{record.errorType,jdbcType=VARCHAR},
+      error_type_detail = #{record.errorTypeDetail,jdbcType=VARCHAR},
+      modify_remark = #{record.modifyRemark,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      opt_id = #{record.optId,jdbcType=BIGINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinochem.domain.BalanceInnerCheck">
+    update balance_inner_check
+    <set>
+      <if test="checkDate != null">
+        check_date = #{checkDate,jdbcType=DATE},
+      </if>
+      <if test="mastAcctNum != null">
+        mast_acct_num = #{mastAcctNum,jdbcType=VARCHAR},
+      </if>
+      <if test="acctNum != null">
+        acct_num = #{acctNum,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        cust_id = #{custId,jdbcType=BIGINT},
+      </if>
+      <if test="acctName != null">
+        acct_name = #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null">
+        acct_type = #{acctType,jdbcType=INTEGER},
+      </if>
+      <if test="gatewayChannel != null">
+        gateway_channel = #{gatewayChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayChannelCode != null">
+        gateway_channel_code = #{gatewayChannelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="innerTotalBalance != null">
+        inner_total_balance = #{innerTotalBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsTotalBalance != null">
+        acps_total_balance = #{acpsTotalBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="innerAvailableBalance != null">
+        inner_available_balance = #{innerAvailableBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsAvailableBalance != null">
+        acps_available_balance = #{acpsAvailableBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="innerAvailableDrawBalance != null">
+        inner_available_draw_balance = #{innerAvailableDrawBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsAvailableDrawBalance != null">
+        acps_available_draw_balance = #{acpsAvailableDrawBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="innerFrozenBalance != null">
+        inner_frozen_balance = #{innerFrozenBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsFrozenBalance != null">
+        acps_frozen_balance = #{acpsFrozenBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="innerPreMinusAmt != null">
+        inner_pre_minus_amt = #{innerPreMinusAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsPreMinusAmt != null">
+        acps_pre_minus_amt = #{acpsPreMinusAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="innerPendingPaymentBalance != null">
+        inner_pending_payment_balance = #{innerPendingPaymentBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="acpsPendingPaymentBalance != null">
+        acps_pending_payment_balance = #{acpsPendingPaymentBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="checkStatus != null">
+        check_status = #{checkStatus,jdbcType=INTEGER},
+      </if>
+      <if test="alarmState != null">
+        alarm_state = #{alarmState,jdbcType=INTEGER},
+      </if>
+      <if test="errorType != null">
+        error_type = #{errorType,jdbcType=VARCHAR},
+      </if>
+      <if test="errorTypeDetail != null">
+        error_type_detail = #{errorTypeDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyRemark != null">
+        modify_remark = #{modifyRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="optId != null">
+        opt_id = #{optId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinochem.domain.BalanceInnerCheck">
+    update balance_inner_check
+    set check_date = #{checkDate,jdbcType=DATE},
+      mast_acct_num = #{mastAcctNum,jdbcType=VARCHAR},
+      acct_num = #{acctNum,jdbcType=VARCHAR},
+      cust_id = #{custId,jdbcType=BIGINT},
+      acct_name = #{acctName,jdbcType=VARCHAR},
+      acct_type = #{acctType,jdbcType=INTEGER},
+      gateway_channel = #{gatewayChannel,jdbcType=VARCHAR},
+      gateway_channel_code = #{gatewayChannelCode,jdbcType=VARCHAR},
+      inner_total_balance = #{innerTotalBalance,jdbcType=DECIMAL},
+      acps_total_balance = #{acpsTotalBalance,jdbcType=DECIMAL},
+      inner_available_balance = #{innerAvailableBalance,jdbcType=DECIMAL},
+      acps_available_balance = #{acpsAvailableBalance,jdbcType=DECIMAL},
+      inner_available_draw_balance = #{innerAvailableDrawBalance,jdbcType=DECIMAL},
+      acps_available_draw_balance = #{acpsAvailableDrawBalance,jdbcType=DECIMAL},
+      inner_frozen_balance = #{innerFrozenBalance,jdbcType=DECIMAL},
+      acps_frozen_balance = #{acpsFrozenBalance,jdbcType=DECIMAL},
+      inner_pre_minus_amt = #{innerPreMinusAmt,jdbcType=DECIMAL},
+      acps_pre_minus_amt = #{acpsPreMinusAmt,jdbcType=DECIMAL},
+      inner_pending_payment_balance = #{innerPendingPaymentBalance,jdbcType=DECIMAL},
+      acps_pending_payment_balance = #{acpsPendingPaymentBalance,jdbcType=DECIMAL},
+      check_status = #{checkStatus,jdbcType=INTEGER},
+      alarm_state = #{alarmState,jdbcType=INTEGER},
+      error_type = #{errorType,jdbcType=VARCHAR},
+      error_type_detail = #{errorTypeDetail,jdbcType=VARCHAR},
+      modify_remark = #{modifyRemark,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      opt_id = #{optId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

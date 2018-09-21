@@ -11,7 +11,7 @@
         </commentGenerator>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.144.137.22:3306/gold_goods_dev" userId="dev_gg"
+                        connectionURL="jdbc:mysql://10.144.137.22:3306/gold_goods_check" userId="dev_gg"
                         password="Sino@1234">
         </jdbcConnection>
         <javaTypeResolver>
@@ -73,7 +73,12 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
+        <!--
         <table tableName="acps_balance_trans_dtl" schema="" domainObjectName="AcpsBalanceTransDtl">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
+        <table tableName="balance_inner_check" schema="" domainObjectName="BalanceInnerCheck">
             <property name="useActualColumnNames" value="false"/>
         </table>
     </context>

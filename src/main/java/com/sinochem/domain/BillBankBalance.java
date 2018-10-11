@@ -23,14 +23,18 @@ public class BillBankBalance {
 
     private String acctId;
 
+    private String acctName;
+
     private BigDecimal tranAmount;
 
     private Long optId;
 
     private String remark;
 
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
 
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date updateTime;
 
     public Long getId() {
@@ -95,6 +99,14 @@ public class BillBankBalance {
 
     public void setAcctId(String acctId) {
         this.acctId = acctId == null ? null : acctId.trim();
+    }
+
+    public String getAcctName() {
+        return acctName;
+    }
+
+    public void setAcctName(String acctName) {
+        this.acctName = acctName == null ? null : acctName.trim();
     }
 
     public BigDecimal getTranAmount() {

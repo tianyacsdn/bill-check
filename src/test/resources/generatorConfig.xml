@@ -13,6 +13,11 @@
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://10.144.137.22:3306/gold_goods_check" userId="dev_gg"
                         password="Sino@1234">
+            <!--
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.26.1.9:3306/gold_goods_check_test" userId="test_check"
+                        password="Sino@1234">
+                        -->
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -38,11 +43,9 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
-        <!--
         <table tableName="bill_bank_balance" schema="" domainObjectName="BillBankBalance">
             <property name="useActualColumnNames" value="false"/>
         </table>
-        -->
         <!--
         <table tableName="acps_balance_check_task" schema="" domainObjectName="AcpsBalanceCheckTask">
             <property name="useActualColumnNames" value="false"/>
@@ -78,8 +81,15 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
+        <!--
         <table tableName="balance_inner_check" schema="" domainObjectName="BalanceInnerCheck">
             <property name="useActualColumnNames" value="false"/>
         </table>
+        -->
+        <!--
+        <table tableName="acps_acct_trans_dtl" schema="" domainObjectName="AcpsAcctTransDtl">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        -->
     </context>
 </generatorConfiguration>

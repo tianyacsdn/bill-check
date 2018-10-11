@@ -646,6 +646,76 @@ public class BillBankBalanceExample {
             return (Criteria) this;
         }
 
+        public Criteria andAcctNameIsNull() {
+            addCriterion("acct_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameIsNotNull() {
+            addCriterion("acct_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameEqualTo(String value) {
+            addCriterion("acct_name =", value, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameNotEqualTo(String value) {
+            addCriterion("acct_name <>", value, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameGreaterThan(String value) {
+            addCriterion("acct_name >", value, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameGreaterThanOrEqualTo(String value) {
+            addCriterion("acct_name >=", value, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameLessThan(String value) {
+            addCriterion("acct_name <", value, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameLessThanOrEqualTo(String value) {
+            addCriterion("acct_name <=", value, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameLike(String value) {
+            addCriterion("acct_name like", value, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameNotLike(String value) {
+            addCriterion("acct_name not like", value, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameIn(List<String> values) {
+            addCriterion("acct_name in", values, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameNotIn(List<String> values) {
+            addCriterion("acct_name not in", values, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameBetween(String value1, String value2) {
+            addCriterion("acct_name between", value1, value2, "acctName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcctNameNotBetween(String value1, String value2) {
+            addCriterion("acct_name not between", value1, value2, "acctName");
+            return (Criteria) this;
+        }
+
         public Criteria andTranAmountIsNull() {
             addCriterion("tran_amount is null");
             return (Criteria) this;

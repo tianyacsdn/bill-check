@@ -9,9 +9,13 @@
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
-
+<!--
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://10.144.137.22:3306/gold_goods_check" userId="dev_gg"
+                        password="Sino@1234">
+                        -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.144.137.22:3306/gold_goods_dev" userId="dev_gg"
                         password="Sino@1234">
             <!--
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -43,9 +47,11 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
+        <!--
         <table tableName="bill_bank_balance" schema="" domainObjectName="BillBankBalance">
             <property name="useActualColumnNames" value="false"/>
         </table>
+        -->
         <!--
         <table tableName="acps_balance_check_task" schema="" domainObjectName="AcpsBalanceCheckTask">
             <property name="useActualColumnNames" value="false"/>
@@ -76,11 +82,9 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
         -->
-        <!--
         <table tableName="acps_balance_trans_dtl" schema="" domainObjectName="AcpsBalanceTransDtl">
             <property name="useActualColumnNames" value="false"/>
         </table>
-        -->
         <!--
         <table tableName="balance_inner_check" schema="" domainObjectName="BalanceInnerCheck">
             <property name="useActualColumnNames" value="false"/>

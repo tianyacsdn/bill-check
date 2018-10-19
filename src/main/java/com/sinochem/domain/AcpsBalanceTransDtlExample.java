@@ -865,6 +865,76 @@ public class AcpsBalanceTransDtlExample {
             addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
+
+        public Criteria andTranTypeIsNull() {
+            addCriterion("tran_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeIsNotNull() {
+            addCriterion("tran_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeEqualTo(String value) {
+            addCriterion("tran_type =", value, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeNotEqualTo(String value) {
+            addCriterion("tran_type <>", value, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeGreaterThan(String value) {
+            addCriterion("tran_type >", value, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("tran_type >=", value, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeLessThan(String value) {
+            addCriterion("tran_type <", value, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeLessThanOrEqualTo(String value) {
+            addCriterion("tran_type <=", value, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeLike(String value) {
+            addCriterion("tran_type like", value, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeNotLike(String value) {
+            addCriterion("tran_type not like", value, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeIn(List<String> values) {
+            addCriterion("tran_type in", values, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeNotIn(List<String> values) {
+            addCriterion("tran_type not in", values, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeBetween(String value1, String value2) {
+            addCriterion("tran_type between", value1, value2, "tranType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTranTypeNotBetween(String value1, String value2) {
+            addCriterion("tran_type not between", value1, value2, "tranType");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

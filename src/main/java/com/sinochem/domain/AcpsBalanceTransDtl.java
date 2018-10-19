@@ -28,6 +28,8 @@ public class AcpsBalanceTransDtl {
 
     private Date updateTime;
 
+    private String tranType;
+
     public Long getId() {
         return id;
     }
@@ -122,5 +124,13 @@ public class AcpsBalanceTransDtl {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getTranType() {
+        return tranType;
+    }
+
+    public void setTranType(String tranType) {
+        this.tranType = tranType == null ? null : tranType.trim();
     }
 }

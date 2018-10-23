@@ -1,14 +1,11 @@
 package com.sinochem.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class BalanceRealTimeCheck {
     private Long id;
 
-    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
     private Date checkDate;
 
     private String mastAcctNum;
@@ -63,11 +60,11 @@ public class BalanceRealTimeCheck {
 
     private Long optId;
 
-    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
 
-    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd hh:mm:ss")
     private Date updateTime;
+
+    private String thirdCustId;
 
     public Long getId() {
         return id;
@@ -307,5 +304,13 @@ public class BalanceRealTimeCheck {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getThirdCustId() {
+        return thirdCustId;
+    }
+
+    public void setThirdCustId(String thirdCustId) {
+        this.thirdCustId = thirdCustId == null ? null : thirdCustId.trim();
     }
 }

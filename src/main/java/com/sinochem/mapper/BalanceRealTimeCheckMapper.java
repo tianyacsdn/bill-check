@@ -32,6 +32,4 @@ public interface BalanceRealTimeCheckMapper {
     int updateByPrimaryKeySelective(BalanceRealTimeCheck record);
 
     int updateByPrimaryKey(BalanceRealTimeCheck record);
-
-    int insertBatch(List<BalanceRealTimeCheck> records);
 }

@@ -2022,6 +2022,76 @@ public class BalanceRealTimeCheckExample {
             addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
+
+        public Criteria andThirdCustIdIsNull() {
+            addCriterion("third_cust_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdIsNotNull() {
+            addCriterion("third_cust_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdEqualTo(String value) {
+            addCriterion("third_cust_id =", value, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdNotEqualTo(String value) {
+            addCriterion("third_cust_id <>", value, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdGreaterThan(String value) {
+            addCriterion("third_cust_id >", value, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdGreaterThanOrEqualTo(String value) {
+            addCriterion("third_cust_id >=", value, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdLessThan(String value) {
+            addCriterion("third_cust_id <", value, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdLessThanOrEqualTo(String value) {
+            addCriterion("third_cust_id <=", value, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdLike(String value) {
+            addCriterion("third_cust_id like", value, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdNotLike(String value) {
+            addCriterion("third_cust_id not like", value, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdIn(List<String> values) {
+            addCriterion("third_cust_id in", values, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdNotIn(List<String> values) {
+            addCriterion("third_cust_id not in", values, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdBetween(String value1, String value2) {
+            addCriterion("third_cust_id between", value1, value2, "thirdCustId");
+            return (Criteria) this;
+        }
+
+        public Criteria andThirdCustIdNotBetween(String value1, String value2) {
+            addCriterion("third_cust_id not between", value1, value2, "thirdCustId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

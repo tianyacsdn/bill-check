@@ -6,6 +6,8 @@
     <result column="sino_chem_trade_id" jdbcType="VARCHAR" property="sinoChemTradeId" />
     <result column="sino_chem_order_id" jdbcType="VARCHAR" property="sinoChemOrderId" />
     <result column="cust_id" jdbcType="BIGINT" property="custId" />
+    <result column="acct_type" jdbcType="VARCHAR" property="acctType" />
+    <result column="acct_name" jdbcType="VARCHAR" property="acctName" />
     <result column="tran_remark" jdbcType="VARCHAR" property="tranRemark" />
     <result column="tran_amt" jdbcType="DECIMAL" property="tranAmt" />
     <result column="available_balance" jdbcType="DECIMAL" property="availableBalance" />
@@ -75,9 +77,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, sino_chem_trade_id, sino_chem_order_id, cust_id, tran_remark, tran_amt, available_balance, 
-    pending_payment_balance, available_draw_balance, remark, create_time, update_time, 
-    tran_type
+    id, sino_chem_trade_id, sino_chem_order_id, cust_id, acct_type, acct_name, tran_remark, 
+    tran_amt, available_balance, pending_payment_balance, available_draw_balance, remark, 
+    create_time, update_time, tran_type
   </sql>
   <select id="selectByExample" parameterType="com.sinochem.domain.AcpsBalanceTransDtlExample" resultMap="BaseResultMap">
     select
@@ -111,15 +113,17 @@
   </delete>
   <insert id="insert" parameterType="com.sinochem.domain.AcpsBalanceTransDtl">
     insert into acps_balance_trans_dtl (id, sino_chem_trade_id, sino_chem_order_id, 
-      cust_id, tran_remark, tran_amt, 
-      available_balance, pending_payment_balance, 
-      available_draw_balance, remark, create_time, 
-      update_time, tran_type)
+      cust_id, acct_type, acct_name, 
+      tran_remark, tran_amt, available_balance, 
+      pending_payment_balance, available_draw_balance, 
+      remark, create_time, update_time, 
+      tran_type)
     values (#{id,jdbcType=BIGINT}, #{sinoChemTradeId,jdbcType=VARCHAR}, #{sinoChemOrderId,jdbcType=VARCHAR}, 
-      #{custId,jdbcType=BIGINT}, #{tranRemark,jdbcType=VARCHAR}, #{tranAmt,jdbcType=DECIMAL}, 
-      #{availableBalance,jdbcType=DECIMAL}, #{pendingPaymentBalance,jdbcType=DECIMAL}, 
-      #{availableDrawBalance,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{tranType,jdbcType=VARCHAR})
+      #{custId,jdbcType=BIGINT}, #{acctType,jdbcType=VARCHAR}, #{acctName,jdbcType=VARCHAR}, 
+      #{tranRemark,jdbcType=VARCHAR}, #{tranAmt,jdbcType=DECIMAL}, #{availableBalance,jdbcType=DECIMAL}, 
+      #{pendingPaymentBalance,jdbcType=DECIMAL}, #{availableDrawBalance,jdbcType=DECIMAL}, 
+      #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{tranType,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sinochem.domain.AcpsBalanceTransDtl">
     insert into acps_balance_trans_dtl
@@ -135,6 +139,12 @@
       </if>
       <if test="custId != null">
         cust_id,
+      </if>
+      <if test="acctType != null">
+        acct_type,
+      </if>
+      <if test="acctName != null">
+        acct_name,
       </if>
       <if test="tranRemark != null">
         tran_remark,
@@ -176,6 +186,12 @@
       </if>
       <if test="custId != null">
         #{custId,jdbcType=BIGINT},
+      </if>
+      <if test="acctType != null">
+        #{acctType,jdbcType=VARCHAR},
+      </if>
+      <if test="acctName != null">
+        #{acctName,jdbcType=VARCHAR},
       </if>
       <if test="tranRemark != null">
         #{tranRemark,jdbcType=VARCHAR},
@@ -227,6 +243,12 @@
       <if test="record.custId != null">
         cust_id = #{record.custId,jdbcType=BIGINT},
       </if>
+      <if test="record.acctType != null">
+        acct_type = #{record.acctType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acctName != null">
+        acct_name = #{record.acctName,jdbcType=VARCHAR},
+      </if>
       <if test="record.tranRemark != null">
         tran_remark = #{record.tranRemark,jdbcType=VARCHAR},
       </if>
@@ -265,6 +287,8 @@
       sino_chem_trade_id = #{record.sinoChemTradeId,jdbcType=VARCHAR},
       sino_chem_order_id = #{record.sinoChemOrderId,jdbcType=VARCHAR},
       cust_id = #{record.custId,jdbcType=BIGINT},
+      acct_type = #{record.acctType,jdbcType=VARCHAR},
+      acct_name = #{record.acctName,jdbcType=VARCHAR},
       tran_remark = #{record.tranRemark,jdbcType=VARCHAR},
       tran_amt = #{record.tranAmt,jdbcType=DECIMAL},
       available_balance = #{record.availableBalance,jdbcType=DECIMAL},
@@ -289,6 +313,12 @@
       </if>
       <if test="custId != null">
         cust_id = #{custId,jdbcType=BIGINT},
+      </if>
+      <if test="acctType != null">
+        acct_type = #{acctType,jdbcType=VARCHAR},
+      </if>
+      <if test="acctName != null">
+        acct_name = #{acctName,jdbcType=VARCHAR},
       </if>
       <if test="tranRemark != null">
         tran_remark = #{tranRemark,jdbcType=VARCHAR},
@@ -325,6 +355,8 @@
     set sino_chem_trade_id = #{sinoChemTradeId,jdbcType=VARCHAR},
       sino_chem_order_id = #{sinoChemOrderId,jdbcType=VARCHAR},
       cust_id = #{custId,jdbcType=BIGINT},
+      acct_type = #{acctType,jdbcType=VARCHAR},
+      acct_name = #{acctName,jdbcType=VARCHAR},
       tran_remark = #{tranRemark,jdbcType=VARCHAR},
       tran_amt = #{tranAmt,jdbcType=DECIMAL},
       available_balance = #{availableBalance,jdbcType=DECIMAL},
@@ -337,15 +369,22 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <insert id="insertBatch" keyProperty="id" parameterType="java.util.List" useGeneratedKeys="true">
-      insert into acps_balance_trans_dtl (id, sino_chem_trade_id, sino_chem_order_id,
-      cust_id, tran_remark, tran_amt,
-      available_balance, pending_payment_balance,
-      available_draw_balance, remark, create_time,
-      update_time, tran_type)
-    values
+    insert into acps_balance_trans_dtl (id, sino_chem_trade_id, sino_chem_order_id,
+    cust_id, acct_type, acct_name,
+    tran_remark, tran_amt, available_balance,
+    pending_payment_balance, available_draw_balance,
+    remark, create_time, update_time,
+    tran_type)
+    values (#{id,jdbcType=BIGINT}, #{sinoChemTradeId,jdbcType=VARCHAR}, #{sinoChemOrderId,jdbcType=VARCHAR},
+    #{custId,jdbcType=BIGINT}, #{acctType,jdbcType=VARCHAR}, #{acctName,jdbcType=VARCHAR},
+    #{tranRemark,jdbcType=VARCHAR}, #{tranAmt,jdbcType=DECIMAL}, #{availableBalance,jdbcType=DECIMAL},
+    #{pendingPaymentBalance,jdbcType=DECIMAL}, #{availableDrawBalance,jdbcType=DECIMAL},
+    #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+    #{tranType,jdbcType=VARCHAR})
     <foreach collection="list" index="index" item="item" separator=",">
       (#{item.id,jdbcType=BIGINT}, #{item.sinoChemTradeId,jdbcType=VARCHAR}, #{item.sinoChemOrderId,jdbcType=VARCHAR},
-      #{item.custId,jdbcType=BIGINT}, #{item.tranRemark,jdbcType=VARCHAR}, #{item.tranAmt,jdbcType=DECIMAL},
+      #{item.custId,jdbcType=BIGINT}, #{item.acctType,jdbcType=VARCHAR}, #{item.acctName,jdbcType=VARCHAR},
+      #{item.tranRemark,jdbcType=VARCHAR}, #{item.tranAmt,jdbcType=DECIMAL},
       #{item.availableBalance,jdbcType=DECIMAL}, #{item.pendingPaymentBalance,jdbcType=DECIMAL},
       #{item.availableDrawBalance,jdbcType=DECIMAL}, #{item.remark,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP},
       #{item.updateTime,jdbcType=TIMESTAMP}, #{tranType,jdbcType=VARCHAR})

@@ -12,6 +12,10 @@ public class AcpsBalanceTransDtl {
 
     private Long custId;
 
+    private String acctType;
+
+    private String acctName;
+
     private String tranRemark;
 
     private BigDecimal tranAmt;
@@ -60,6 +64,22 @@ public class AcpsBalanceTransDtl {
 
     public void setCustId(Long custId) {
         this.custId = custId;
+    }
+
+    public String getAcctType() {
+        return acctType;
+    }
+
+    public void setAcctType(String acctType) {
+        this.acctType = acctType == null ? null : acctType.trim();
+    }
+
+    public String getAcctName() {
+        return acctName;
+    }
+
+    public void setAcctName(String acctName) {
+        this.acctName = acctName == null ? null : acctName.trim();
     }
 
     public String getTranRemark() {
